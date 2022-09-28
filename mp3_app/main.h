@@ -1,3 +1,7 @@
+// Embedded_MP3
+// Experiment 1
+// Garrett Mason & Harrison Heselbarth
+
 #ifndef	_MAIN_H
 #define _MAIN_H
 
@@ -5,9 +9,7 @@
 
 #define F_CPU (16000000)
 #define OSC_DIV (1)
-//#define OSC_F(F_CPU / OSC_DIV)
-//#define baud_rate ((OSC_F / (8 * (2 - U2X))
-//#define UBRR_value((OSC_F / (8 * (2 - U2X) * baud_rate)) -1)
+#define baud_rate (9600)
 
 
 #define PIN_offset (0)
@@ -29,10 +31,10 @@
 2.	Done
 3.	Done
 4.	Done
-5.	
-6.	
-7.	
-8.	
+5.	Done
+6.	Done
+7.	Done-Testing Needed
+8.	Testing
 9.	
 10.	
 11.	
