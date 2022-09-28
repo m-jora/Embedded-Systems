@@ -3,29 +3,29 @@ mp3_app.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  000001d4  2**0
+  0 .data         00000000  00800100  00800100  000001b6  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000180  00000000  00000000  00000054  2**1
+  1 .text         00000162  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  000001d4  2**0
+  2 .comment      00000030  00000000  00000000  000001b6  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000204  2**2
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000001e8  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000080  00000000  00000000  00000244  2**0
+  4 .debug_aranges 00000080  00000000  00000000  00000228  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000fc9  00000000  00000000  000002c4  2**0
+  5 .debug_info   00000f6e  00000000  00000000  000002a8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000bf4  00000000  00000000  0000128d  2**0
+  6 .debug_abbrev 00000bf4  00000000  00000000  00001216  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000004f9  00000000  00000000  00001e81  2**0
+  7 .debug_line   000004e7  00000000  00000000  00001e0a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000000ac  00000000  00000000  0000237c  2**2
+  8 .debug_frame  000000ac  00000000  00000000  000022f4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000582  00000000  00000000  00002428  2**0
+  9 .debug_str    00000582  00000000  00000000  000023a0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000206  00000000  00000000  000029aa  2**0
+ 10 .debug_loc    00000206  00000000  00000000  00002922  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000050  00000000  00000000  00002bb0  2**0
+ 11 .debug_ranges 00000050  00000000  00000000  00002b28  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -91,7 +91,7 @@ Disassembly of section .text:
   d4:	de bf       	out	0x3e, r29	; 62
   d6:	cd bf       	out	0x3d, r28	; 61
   d8:	0e 94 8b 00 	call	0x116	; 0x116 <main>
-  dc:	0c 94 be 00 	jmp	0x17c	; 0x17c <_exit>
+  dc:	0c 94 af 00 	jmp	0x15e	; 0x15e <_exit>
 
 000000e0 <__bad_interrupt>:
   e0:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -168,37 +168,39 @@ int main(void)
  118:	86 e2       	ldi	r24, 0x26	; 38
  11a:	90 e0       	ldi	r25, 0x00	; 0
  11c:	0e 94 82 00 	call	0x104	; 0x104 <LEDS_Init>
-	LEDS_Init(LED1_port, LED1_pin);
- 120:	68 e0       	ldi	r22, 0x08	; 8
- 122:	83 e2       	ldi	r24, 0x23	; 35
- 124:	90 e0       	ldi	r25, 0x00	; 0
- 126:	0e 94 82 00 	call	0x104	; 0x104 <LEDS_Init>
-	LEDS_Init(LED2_port, LED2_pin);
- 12a:	60 e1       	ldi	r22, 0x10	; 16
- 12c:	8c e2       	ldi	r24, 0x2C	; 44
- 12e:	90 e0       	ldi	r25, 0x00	; 0
- 130:	0e 94 82 00 	call	0x104	; 0x104 <LEDS_Init>
-	LEDS_Init(LED3_port, LED3_pin);
- 134:	60 e8       	ldi	r22, 0x80	; 128
- 136:	80 e2       	ldi	r24, 0x20	; 32
- 138:	90 e0       	ldi	r25, 0x00	; 0
- 13a:	0e 94 82 00 	call	0x104	; 0x104 <LEDS_Init>
+	//LEDS_Init(LED3_port, LED3_pin);
 	
     /* Replace with your application code */
     while (1) 
     {
 		LEDS_On(LED0_port, LED0_pin);
- 13e:	60 e8       	ldi	r22, 0x80	; 128
- 140:	70 e0       	ldi	r23, 0x00	; 0
- 142:	86 e2       	ldi	r24, 0x26	; 38
- 144:	90 e0       	ldi	r25, 0x00	; 0
- 146:	0e 94 88 00 	call	0x110	; 0x110 <LEDS_On>
+ 120:	60 e8       	ldi	r22, 0x80	; 128
+ 122:	70 e0       	ldi	r23, 0x00	; 0
+ 124:	86 e2       	ldi	r24, 0x26	; 38
+ 126:	90 e0       	ldi	r25, 0x00	; 0
+ 128:	0e 94 88 00 	call	0x110	; 0x110 <LEDS_On>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
+ 12c:	2f ef       	ldi	r18, 0xFF	; 255
+ 12e:	83 ed       	ldi	r24, 0xD3	; 211
+ 130:	90 e3       	ldi	r25, 0x30	; 48
+ 132:	21 50       	subi	r18, 0x01	; 1
+ 134:	80 40       	sbci	r24, 0x00	; 0
+ 136:	90 40       	sbci	r25, 0x00	; 0
+ 138:	e1 f7       	brne	.-8      	; 0x132 <main+0x1c>
+ 13a:	00 c0       	rjmp	.+0      	; 0x13c <main+0x26>
+ 13c:	00 00       	nop
+		_delay_ms(1000);
+		LEDS_Off(LED0_port, LED0_pin);
+ 13e:	60 e8       	ldi	r22, 0x80	; 128
+ 140:	70 e0       	ldi	r23, 0x00	; 0
+ 142:	86 e2       	ldi	r24, 0x26	; 38
+ 144:	90 e0       	ldi	r25, 0x00	; 0
+ 146:	0e 94 85 00 	call	0x10a	; 0x10a <LEDS_Off>
  14a:	2f ef       	ldi	r18, 0xFF	; 255
  14c:	83 ed       	ldi	r24, 0xD3	; 211
  14e:	90 e3       	ldi	r25, 0x30	; 48
@@ -208,26 +210,10 @@ int main(void)
  156:	e1 f7       	brne	.-8      	; 0x150 <main+0x3a>
  158:	00 c0       	rjmp	.+0      	; 0x15a <main+0x44>
  15a:	00 00       	nop
-		_delay_ms(1000);
-		LEDS_Off(LED0_port, LED0_pin);
- 15c:	60 e8       	ldi	r22, 0x80	; 128
- 15e:	70 e0       	ldi	r23, 0x00	; 0
- 160:	86 e2       	ldi	r24, 0x26	; 38
- 162:	90 e0       	ldi	r25, 0x00	; 0
- 164:	0e 94 85 00 	call	0x10a	; 0x10a <LEDS_Off>
- 168:	2f ef       	ldi	r18, 0xFF	; 255
- 16a:	83 ed       	ldi	r24, 0xD3	; 211
- 16c:	90 e3       	ldi	r25, 0x30	; 48
- 16e:	21 50       	subi	r18, 0x01	; 1
- 170:	80 40       	sbci	r24, 0x00	; 0
- 172:	90 40       	sbci	r25, 0x00	; 0
- 174:	e1 f7       	brne	.-8      	; 0x16e <main+0x58>
- 176:	00 c0       	rjmp	.+0      	; 0x178 <main+0x62>
- 178:	00 00       	nop
- 17a:	e1 cf       	rjmp	.-62     	; 0x13e <main+0x28>
+ 15c:	e1 cf       	rjmp	.-62     	; 0x120 <main+0xa>
 
-0000017c <_exit>:
- 17c:	f8 94       	cli
+0000015e <_exit>:
+ 15e:	f8 94       	cli
 
-0000017e <__stop_program>:
- 17e:	ff cf       	rjmp	.-2      	; 0x17e <__stop_program>
+00000160 <__stop_program>:
+ 160:	ff cf       	rjmp	.-2      	; 0x160 <__stop_program>

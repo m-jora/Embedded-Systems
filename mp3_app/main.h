@@ -19,12 +19,16 @@
 #define PE ((volatile GPIO_t *)(&PINE))
 #define PA ((volatile GPIO_t *)(&PINA))
 
+#define UART0 ((volatile UART_t *)(0xC0))
+#define UART1 ((volatile UART_t *)(0xC8))
+#define UART2 ((volatile UART_t *)(0xD0))
+
 
 /*
 1.	Done
 2.	Done
 3.	Done
-4.	
+4.	Done
 5.	
 6.	
 7.	
@@ -35,12 +39,20 @@
 12.	
 */
 
-
-
 typedef struct GPIO{
 	volatile uint8_t GPIO_PIN;
 	volatile uint8_t GPIO_DDR;
 	volatile uint8_t GPIO_PORT;
 } GPIO_t;
+
+typedef struct UART{
+	volatile uint8_t UART_UCSRA;
+	volatile uint8_t UART_UCSRB;
+	volatile uint8_t UART_UCSRC;
+	volatile uint8_t UART_UCSRD;
+	volatile uint8_t UART_UBRRL;
+	volatile uint8_t UART_UBRRH;
+	volatile uint8_t UART_UDR;
+	} UART_t;
 
 #endif
