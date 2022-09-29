@@ -18,6 +18,7 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
+		/*
 		LEDS_On(LED0_port, LED0_pin);
 		LEDS_On(LED1_port, LED1_pin);
 		LEDS_On(LED2_port, LED2_pin);
@@ -28,8 +29,12 @@ int main(void)
 		LEDS_Off(LED2_port, LED2_pin);
 		LEDS_Off(LED3_port, LED3_pin);
 		_delay_ms(1000);	
+		*/
 		
-		UART_Transmit(UART1, 0x55);
+		uint8_t value = UART_Receive(UART1);
+		_delay_ms(100);
+		UART_Transmit(UART1, value);
+		_delay_ms(100);
     }
 }
 

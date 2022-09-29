@@ -3,10 +3,12 @@
 
 #include "main.h"
 
+#define U2X (0)
+
 //UART_UCSRA
 #define TXC (0<<6)
 #define MPCM (0<<0)
-#define U2X (1<<1)
+#define U2XA (0<<0)
 
 //UART_UCSRB
 #define Interrupt_Disabled (0<<7)|(0<<6)|(0<<5)
@@ -24,7 +26,7 @@
 #define RXC (1<<7)
 
 void UART_Init(volatile UART_t * UART_addr, uint32_t Baud_Rate);
-int8_t UART_Transmit(volatile UART_t * UART_addr, int8_t send_value);
+void UART_Transmit(volatile UART_t * UART_addr, int8_t send_value);
 uint8_t UART_Receive(volatile UART_t * UART_addr);
 
 #endif

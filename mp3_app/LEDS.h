@@ -14,6 +14,6 @@
 #define LED3_port (PA)
 #define LED3_pin (1<<7)
 
-LEDS_Init(volatile GPIO_t * port_addr, uint8_t LED_pin);
+void LEDS_Init(volatile GPIO_t * port_addr, uint8_t LED_pin);
 
 #endif
