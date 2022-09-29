@@ -17,12 +17,12 @@ int main(void)
 	
 	UART_Init(UART1, baud_rate);
 	
-	//char * p_buffer;
-	//p_buffer = Export_print_buffer();
+	char * p_buffer;
+	p_buffer = Export_print_buffer();
 	//sprintf(p_buffer, "ello governor");
 	
 	//char p_buffer[80];
-	//uint8_t index = Copy_String_to_Buffer(characters, 0, p_buffer);
+	uint8_t index = Copy_String_to_Buffer(characters, 0, p_buffer);
 	
 	
     /* Replace with your application code */
@@ -44,9 +44,7 @@ int main(void)
 		//uint8_t value = UART_Receive(UART1);
 		//UART_Transmit(UART1, value);
 		
-		//UART_Transmit_String(UART1, 0, p_buffer);
-		
-		//UART_Transmit_String(UART1, 0, p_buffer);
+		UART_Transmit_String(UART1, 0, p_buffer);
     }
 }
 
