@@ -34,8 +34,8 @@
 5.	Done
 6.	Done
 7.	Done
-8.	
-9.	
+8.	Done
+9.	Done
 10.	
 11.	
 12.	

@@ -14,14 +14,14 @@ void UART_Init(volatile UART_t * UART_addr, uint32_t Baud_Rate){
 void UART_Transmit(volatile UART_t * UART_addr, int8_t send_value){
 	do{
 		;
-	}while(!(UDRE && UART_addr->UART_UCSRA));
+	}while(!(UDRE & UART_addr->UART_UCSRA));
 	UART_addr->UART_UDR = send_value;
 }
 
 uint8_t UART_Receive(volatile UART_t * UART_addr){
 	do{
 		;
-	}while(!(RXC && UART_addr->UART_UCSRA));
+	}while(!(RXC & UART_addr->UART_UCSRA));
 	uint8_t ret_val = UART_addr->UART_UDR;
 	return ret_val;
 }

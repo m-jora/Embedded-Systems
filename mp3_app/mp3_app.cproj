@@ -166,10 +166,22 @@
     <Compile Include="port.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="print_memory.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="print_memory.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="uart.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="uart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Print.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Print.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

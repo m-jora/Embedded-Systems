@@ -3,8 +3,10 @@
 #include <util/delay.h>
 #include "LEDS.h"
 #include "uart.h"
+#include <stdio.h>
+#include "UART_Print.h"
 
-
+const char characters[30] = "Testing static character array";
 
 int main(void)
 {
@@ -14,6 +16,14 @@ int main(void)
 	LEDS_Init(LED3_port, LED3_pin);
 	
 	UART_Init(UART1, baud_rate);
+	
+	//char * p_buffer;
+	//p_buffer = Export_print_buffer();
+	//sprintf(p_buffer, "ello governor");
+	
+	//char p_buffer[80];
+	//uint8_t index = Copy_String_to_Buffer(characters, 0, p_buffer);
+	
 	
     /* Replace with your application code */
     while (1) 
@@ -31,10 +41,12 @@ int main(void)
 		_delay_ms(1000);	
 		*/
 		
-		uint8_t value = UART_Receive(UART1);
-		_delay_ms(100);
-		UART_Transmit(UART1, value);
-		_delay_ms(100);
+		//uint8_t value = UART_Receive(UART1);
+		//UART_Transmit(UART1, value);
+		
+		//UART_Transmit_String(UART1, 0, p_buffer);
+		
+		//UART_Transmit_String(UART1, 0, p_buffer);
     }
 }
 
