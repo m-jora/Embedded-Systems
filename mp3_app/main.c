@@ -6,8 +6,11 @@
 #include <stdio.h>
 #include "UART_Print.h"
 #include <avr/pgmspace.h>
+#include "print_memory.h"
 
-const char characters[32] PROGMEM = "Testing static character array\n";
+//const char characters[32] PROGMEM = "Testing static character array\n";
+const char message[37] PROGMEM = "Garrett Mason & Harrison Heselbarth\n";
+uint8_t * p_message = message;
 
 int main(void)
 {
@@ -21,14 +24,16 @@ int main(void)
 	char * p_buffer;
 	p_buffer = Export_print_buffer();
 	//sprintf(p_buffer, "ello governor");
+	//uint8_t index = Copy_String_to_Buffer(characters, 0, p_buffer);
 	
-	uint8_t index = Copy_String_to_Buffer(characters, 0, p_buffer);
+	uint8_t index = Copy_String_to_Buffer(message, 0, p_buffer);
+	UART_Transmit_String(UART1, 0, p_buffer);
 	
+	print_memory(UART1,37,p_message);
 	
-    /* Replace with your application code */
     while (1) 
     {
-		/*
+		
 		LEDS_On(LED0_port, LED0_pin);
 		LEDS_On(LED1_port, LED1_pin);
 		LEDS_On(LED2_port, LED2_pin);
@@ -39,12 +44,8 @@ int main(void)
 		LEDS_Off(LED2_port, LED2_pin);
 		LEDS_Off(LED3_port, LED3_pin);
 		_delay_ms(1000);	
-		*/
 		
 		//uint8_t value = UART_Receive(UART1);
 		//UART_Transmit(UART1, value);
-		
-		UART_Transmit_String(UART1, 0, p_buffer);
     }
 }
-
