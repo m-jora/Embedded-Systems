@@ -5,8 +5,9 @@
 #include "uart.h"
 #include <stdio.h>
 #include "UART_Print.h"
+#include <avr/pgmspace.h>
 
-const char characters[30] = "Testing static character array";
+const char characters[32] PROGMEM = "Testing static character array\n";
 
 int main(void)
 {
