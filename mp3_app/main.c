@@ -21,7 +21,6 @@ int main(void)
 	p_buffer = Export_print_buffer();
 	//sprintf(p_buffer, "ello governor");
 	
-	//char p_buffer[80];
 	uint8_t index = Copy_String_to_Buffer(characters, 0, p_buffer);
 	
 	
