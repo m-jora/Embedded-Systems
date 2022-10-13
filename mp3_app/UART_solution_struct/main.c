@@ -19,7 +19,7 @@ int main(void)
 {
 	/* Replace with your application code */
 	char temp8;
-	char string_in_SRAM [41] = "This is a string in SRAM - Roger Younger";
+	char string_in_SRAM [41] = "This is a string in SRAM - Garrett Mason & Harrison Heselbarth";
 	char *string_p;
 	uint32_t temp32;
 	LEDS_Off(LED0_port, LED0_pin);
@@ -35,7 +35,14 @@ int main(void)
 	Copy_String_to_Buffer(test_string,0,string_p);
 	UART_Transmit_String(UART1,0,string_p);
 	print_memory(UART1,50,(uint8_t *)string_in_SRAM);
-	while (1)
+	
+	SPI_Master_Init(SPI0_base, 400000UL);
+	while(1){
+		Send_Command(0x00, 0xAAAAAAAA);
+	}
+	
+	
+	while (0)
 	{
 		temp8=UART_Receive(UART1);
 		UART_Transmit(UART1,temp8);
