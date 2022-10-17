@@ -88,7 +88,6 @@ uint8_t SPI_Transfer(uint8_t volatile *SPI_addr, uint8_t send_value){
 
 uint8_t Send_Command (uint8_t command, uint32_t argument){
 	uint8_t return_value;
-	uint8_t no_errors = 0x00;
 	uint8_t illegal_command = 0xFF; //Guessed on value for error
 	uint8_t send_value; //Right type?
 	
@@ -120,4 +119,34 @@ uint8_t Send_Command (uint8_t command, uint32_t argument){
 	return return_value;
 }
 
-
+uint8_t Receive_Response (uint8_t number_of_bytes, uint8_t * array_name) {
+	uint8_t return_value = no_errors;
+	uint8_t SPI_timeout_error = 0xFF;
+	uint8_t SD_comm_error = 0xFF;
+	uint8_t timeout = 0;
+	uint8_t rcvd_value;
+	
+	do{
+		rcvd_value = SPI_Transfer(SD_SPI_port, 0xFF);
+		timeout++;
+	}while((rcvd_value == 0xFF) && (timeout != 0));
+	
+	if(timeout == 0){
+		return_value = SPI_timeout_error;
+	}
+	else if ((rcvd_value & 0xFE) != 0x00){
+		*array_name = rcvd_value;
+		return_value = SD_comm_error;
+	}
+	else{
+		*array_name = rcvd_value;
+		if(number_of_bytes > 1){
+			for(uint16_t index = 1; index < number_of_bytes; index++){
+				rcvd_value = SPI_Transfer(SD_SPI_port, 0xFF);
+				*(array_name + index) = rcvd_value;
+			}
+		}
+	}
+	rcvd_value = SPI_Transfer(SD_SPI_port, 0xFF);
+	return return_value;
+}

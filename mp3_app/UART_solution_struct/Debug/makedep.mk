@@ -12,6 +12,8 @@ main.c
 
 print_memory.c
 
+SD.c
+
 SPI.c
 
 UART.c
