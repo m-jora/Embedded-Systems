@@ -88,8 +88,8 @@ uint8_t SPI_Transfer(uint8_t volatile *SPI_addr, uint8_t send_value){
 
 uint8_t Send_Command (uint8_t command, uint32_t argument){
 	uint8_t return_value;
-	uint8_t illegal_command = 0xFF; //Guessed on value for error
-	uint8_t send_value; //Right type?
+	uint8_t illegal_command = 0xFF;
+	uint8_t send_value;
 	
 	if(command < 64){
 		return_value = no_errors;
