@@ -9,6 +9,7 @@
 #include "print_memory.h"
 #include "Long_Serial_In.h"
 #include <stdio.h>
+#include "SD.h"
 
 
 
@@ -24,22 +25,26 @@ int main(void)
 	uint32_t temp32;
 	LEDS_Off(LED0_port, LED0_pin);
 	LEDS_Init(LED0_port, LED0_pin);
-	LEDS_Off(LED1_port, LED1_pin);
-	LEDS_Init(LED1_port, LED1_pin);
-	LEDS_Off(LED2_port, LED2_pin);
-	LEDS_Init(LED2_port, LED2_pin);
-	LEDS_Off(LED3_port, LED3_pin);
-	LEDS_Init(LED3_port, LED3_pin);
-	UART_Init(UART1,9600);
-	string_p=Export_print_buffer();
-	Copy_String_to_Buffer(test_string,0,string_p);
-	UART_Transmit_String(UART1,0,string_p);
-	print_memory(UART1,50,(uint8_t *)string_in_SRAM);
 	
-	SPI_Master_Init(SPI0_base, 400000UL);
-	while(1){
-		Send_Command(0x00, 0xAAAAAAAA);
-	}
+	UART_Init(UART1,9600);
+	uint8_t SPI_error = SPI_Master_Init(SPI0_base, 400000UL);
+	uint8_t SD_error = SD_Card_Init();
+	uint8_t SPI_error2 = SPI_Master_Init(SPI0_base, 25000000UL);
+	
+	char * p_buffer;
+	p_buffer = Export_print_buffer();
+	sprintf(p_buffer, "\n\rSPI_error: 0x%X\n\r", SPI_error);
+	UART_Transmit_String(UART1, 0, p_buffer);
+	sprintf(p_buffer, "SD_error: 0x%X\n\r", SD_error);
+	UART_Transmit_String(UART1, 0, p_buffer);
+	sprintf(p_buffer, "SPI_error2: 0x%X\n\r", SPI_error2);
+	UART_Transmit_String(UART1, 0, p_buffer);
+
+	LEDS_On(LED0_port, LED0_pin);
+	temp8=UART_Receive(UART1);
+	UART_Transmit(UART1,temp8);
+		
+		
 	
 	
 	while (0)
