@@ -12,6 +12,9 @@
 #define clock_rate_error (0xFF)
 #define CMD0 (0x40)
 #define CMD8 (0x48)
+#define CMD58 (0x7A)
+#define CMD55 (0x77) // (to_hex)(55+64) = CMD address
+#define CMD41 (0x69) // Nice
 
 #define no_errors (0x00)
 
@@ -26,7 +29,7 @@ uint8_t Receive_Response (uint8_t number_of_bytes, uint8_t * array_name);
 2.	D
 3F.	D
 4A.	D
-5A.	
+5A.	D
 6.	
 7A.	
 8.	
