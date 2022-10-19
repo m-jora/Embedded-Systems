@@ -2,6 +2,7 @@
 #define BOARD_H_
 
 #include <avr/io.h>
+#include <stdint.h>
 
 #define F_CPU (16000000UL)
 #define F_DIV (1)

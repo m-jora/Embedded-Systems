@@ -30,9 +30,9 @@ uint8_t Receive_Response (uint8_t number_of_bytes, uint8_t * array_name);
 3F.	D
 4A.	D
 5A.	D
-6.	
-7A.	
-8.	
+6.	D
+7A.	D
+8.	D
 9.	
 
 
