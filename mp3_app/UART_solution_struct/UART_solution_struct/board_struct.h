@@ -1,8 +1,15 @@
+/*
+ * board.h
+ *
+ * Created: 9/4/2020 11:57:19 AM
+ *  Author: youngerr
+ */ 
+
+
 #ifndef BOARD_H_
 #define BOARD_H_
 
 #include <avr/io.h>
-#include <stdint.h>
 
 #define F_CPU (16000000UL)
 #define F_DIV (1)
@@ -133,8 +140,6 @@
 #define PORT_D1  1
 #define PORT_D0  0
 
-#define SPI0_base (0x4C)
-#define SPI1_base (0xAC)
 
 /***** Microcontroller SFR Addresses *******/
 /***** UARTS ******/
@@ -167,18 +172,5 @@ typedef struct GPIO
 #define PD ((volatile GPIO_t *) 0x29)
 #define PE ((volatile GPIO_t *) 0x2C)
 
-
-/* TWI Stuff */
-typedef struct TWI
-{
-	volatile uint8_t TWBR;
-	volatile uint8_t TWSR;
-	volatile uint8_t TWAR;
-	volatile uint8_t TWDR;
-	volatile uint8_t TWCR;
-	volatile uint8_t TWAMR;
-} TWI_t;
-#define TWI0_Base ((volatile TWI_t *) 0xB8)
-#define TWI1_Base ((volatile TWI_t *) 0xD8)
 
 #endif /* BOARD_H_ */
