@@ -1,6 +1,4 @@
 #include "TWI.h"
-#include "board_struct.h"
-
 
 uint8_t TWI_Master_Init(volatile TWI_t * TWI_addr, uint32_t I2C_freq){
 	uint16_t prescale = (((F_CPU/F_DIV)/I2C_freq)-16UL)/(2UL*255);
@@ -27,12 +25,13 @@ uint8_t TWI_Master_Init(volatile TWI_t * TWI_addr, uint32_t I2C_freq){
 	TWI_addr->TWBR = (((F_CPU/F_DIV)/I2C_freq)-16UL)/(2UL*prescale);
 }
 
-uint8_t TWI_Master_Receive(volatile TWI_t * TWI_addr, uint8_t device_addr, uint32_t
-int_addr, uint8_t int_addr_sz, uint16_t num_bytes, uint8_t * array_name){
+uint8_t TWI_Master_Receive(volatile TWI_t * TWI_addr, uint8_t device_addr, 
+uint32_t int_addr, uint8_t int_addr_sz, uint16_t num_bytes, uint8_t * array_name){
 	uint8_t return_value = 0;
 	uint8_t index = 0;
 	uint8_t status;
 	uint8_t temp8;
+	uint8_t no_errors = 0;
 	
 	uint8_t send_value=(device_addr<<1)|0x01;
 	
@@ -51,11 +50,18 @@ int_addr, uint8_t int_addr_sz, uint16_t num_bytes, uint8_t * array_name){
 	if((temp8==0x08)||(temp8==0x10))   // Start sent
 	{
 		TWI_addr->TWDR = send_value;
-		TWI_addr->TWCR = ((1<<TWINT)|(1<<TWEN=1));
+		TWI_addr->TWCR = ((1<<TWINT)|(1<<TWEN)); // Had TWEN=1
 	}
 	
+	// Wait for the TWINT bit to be set in the TWCR (same as transmit)
+	do
+	{
+		status = TWI_addr->TWCR; //was CR
+	}while((status&0x80)==0);
+	
 	if(return_value==no_errors){
-		status = TWI_addr->TWCR;
+		status = TWI_addr->TWSR; // Was CR
+		temp8=((TWI_addr->TWSR)&0xF8);  // Wasn't here before
 		if(temp8==0x40){   // SLA+R sent, ACK received
 			if(num_bytes==1)
 			{
@@ -78,26 +84,31 @@ int_addr, uint8_t int_addr_sz, uint16_t num_bytes, uint8_t * array_name){
 				}while((status&0x80)==0);
 				// Read the status value to determine what to do next
 				temp8=((TWI_addr->TWSR)&0xF8);  // Clear lower three bits
-			}
-			if(temp8==0x50)   // Data byte received, ACK sent
-			{
-				num_bytes--;
-				array_name[index]=TWI_addr->TWDR;
-				index++;
-				if(num_bytes==1)
+				
+				// Taken from out of loop
+				if(temp8==0x50)   // Data byte received, ACK sent
 				{
-					TWI_addr->TWCR=((1<<TWINT)|(0<<TWEA)|(1<<TWEN));
+					num_bytes--;
+					array_name[index]=TWI_addr->TWDR;
+					index++;
+					if(num_bytes==1)
+					{
+						TWI_addr->TWCR=((1<<TWINT)|(0<<TWEA)|(1<<TWEN));
+					}
+					else
+					{
+						TWI_addr->TWCR=((1<<TWINT)|(1<<TWEA)|(1<<TWEN));
+					}
 				}
-				else
+				else if(temp8==0x58)  // Data byte received, NACK sent
 				{
-					TWI_addr->TWCR=((1<<TWINT)|(1<<TWEA)|(1<<TWEN));
+					num_bytes--;
+					// save byte to array and num_bytes--
+					array_name[index]=TWI_addr->TWDR;
+					TWI_addr->TWCR=((1<<TWINT)|(1<<TWSTO)|(1<<TWEN));
+					// Wait for TWSTO to return to ‘0’
 				}
 			}
-			else if(temp8==0x58)  // Data byte received, NACK sent
-			{
-				// save byte to array and num_bytes--
-				TWI_addr->TWCR=((1<<TWINT)|(1<<TWSTO)|(1<<TWEN));
-				// Wait for TWSTO to return to ‘0’
 		}
 		
 		else{ //NACK

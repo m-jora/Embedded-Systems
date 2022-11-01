@@ -1,6 +1,8 @@
 #ifndef TWI_H_
 #define TWI_H_
 
+#include "board_struct.h"
+
 /* Checklist:
 1.	D
 2.	D

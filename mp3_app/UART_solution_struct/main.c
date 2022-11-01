@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include "SD.h"
 #include "SPI.h"
+#include "TWI.h"
+#include "STA013.h"
 
 int main(void)
 {
@@ -19,13 +21,14 @@ int main(void)
 	char * p_buffer;
 	p_buffer = Export_print_buffer();
 	uint8_t error_flag;
-	uint8_t array[512];
+	uint8_t array[3];
 	
 	// Initializations
 	UART_Init(UART1,9600);
 	uint8_t SPI_error = SPI_Master_Init(SPI0_base, 400000UL);
 	uint8_t SD_error = SD_Card_Init();
 	uint8_t SPI_error2 = SPI_Master_Init(SPI0_base, 25000000UL);
+	uint8_t TWI_error = TWI_Master_Init(TWI1_Base, 2500UL); // May not work
 	
 	// Testing
 	/*sprintf(p_buffer, "\n\rSPI_error: 0x%X\n\r", SPI_error);
@@ -34,9 +37,15 @@ int main(void)
 	UART_Transmit_String(UART1, 0, p_buffer);
 	sprintf(p_buffer, "\n\rSPI_error2: 0x%X\n\r", SPI_error2);
 	UART_Transmit_String(UART1, 0, p_buffer);*/
+	sprintf(p_buffer, "\n\rTWI_error: 0x%X\n\r", TWI_error);
+	UART_Transmit_String(UART1, 0, p_buffer);
+	array[0] = 0x19;
+	array[1] = 0x20;
+	array[2] = 0xAC;
 	
+	STA013_Master_Init(p_buffer, array);
 	
-	while(1){
+	while(0){
 		// Prompt user for read block address
 		sprintf(p_buffer, "\n\rEnter a block number to read:\n\r");
 		UART_Transmit_String(UART1, 0, p_buffer);
