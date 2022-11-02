@@ -119,3 +119,73 @@ uint32_t int_addr, uint8_t int_addr_sz, uint16_t num_bytes, uint8_t * array_name
 	}
 	return return_value;
 }
+
+uint8_t TWI_Master_Transmit(volatile TWI_t * TWI_addr, uint8_t device_addr,uint16_t num_bytes, uint8_t * array_name){
+	uint8_t status;
+	uint8_t temp8;
+	uint8_t return_value = 0;
+	uint8_t no_errors = 0;
+	uint8_t NACK_error = 0xFE;
+	uint8_t send_value=device_addr<<1;  // lsb will be ‘0’
+	TWI_addr->TWCR =((1<<TWINT)|(1<<TWSTA)|(1<<TWEN));
+	
+	do
+	{
+		status= TWI_addr->TWCR;
+	}while((status&0x80)==0);
+	
+	temp8=((TWI_addr->TWSR)&0xF8);
+	
+	// If start was sent, then send SLA+W
+	if(temp8==0x08)   // Start sent  // 0x10 is a repeated start
+	{
+		TWI_addr->TWDR = send_value;
+		TWI_addr->TWCR = ((1<<TWINT)|(1<<TWEN));
+	}
+	
+	uint8_t index=0;
+	while((num_bytes!=0)&&(return_value==no_errors))
+	{
+		send_value=array_name[index];
+		index++;
+		num_bytes--;
+		// Wait until TWINT is set
+		do
+		{
+			status=TWI_addr->TWCR;
+		}while((status&0x80)==0);
+		// Read the status value to determine what to do next
+		temp8=((TWI_addr->TWSR)&0xF8);  // Clear lower three bits
+		
+		if(temp8==0x18)   // SLA+W sent, ACK received
+		{
+			TWI_addr->TWDR=send_value;
+			TWI_addr->TWCR=((1<<TWINT)|(1<<TWEN));
+		}
+		else if(temp8==0x28)  // Data sent, ACK received
+		{
+			TWI_addr->TWDR=send_value;
+			TWI_addr->TWCR=((1<<TWINT)|(1<<TWEN));
+		}
+		else if(temp8==0x20)  // SLA+W sent, NACK received
+		{
+			TWI_addr->TWCR=((1<<TWINT)|(1<<TWSTO)|(1<<TWEN));
+			do
+			{
+				status=TWI_addr->TWCR;
+			} while ((status&(1<<TWSTO))!=0); // Wait for the Stop=0
+			return_value=NACK_error;
+		}
+	}
+	if(temp8==0x18)   // SLA+W sent, ACK received
+	{
+		TWI_addr->TWDR=send_value;
+		TWI_addr->TWCR=((1<<TWINT)|(1<<TWSTO)|(1<<TWEN));
+		do
+		{
+			status=TWI_addr->TWCR;
+		} while ((status&(1<<TWSTO))!=0); // Wait for the Stop=0
+	}
+	
+	return return_value;
+}

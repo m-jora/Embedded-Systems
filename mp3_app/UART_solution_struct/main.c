@@ -39,9 +39,9 @@ int main(void)
 	UART_Transmit_String(UART1, 0, p_buffer);*/
 	sprintf(p_buffer, "\n\rTWI_error: 0x%X\n\r", TWI_error);
 	UART_Transmit_String(UART1, 0, p_buffer);
-	array[0] = 0x19;
-	array[1] = 0x20;
-	array[2] = 0xAC;
+// 	array[0] = 0x19;
+// 	array[1] = 0x20;
+// 	array[2] = 0xAC;
 	
 	STA013_Master_Init(p_buffer, array);
 	
