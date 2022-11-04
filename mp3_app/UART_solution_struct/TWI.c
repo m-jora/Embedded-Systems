@@ -126,7 +126,7 @@ uint8_t TWI_Master_Transmit(volatile TWI_t * TWI_addr, uint8_t device_addr,uint
 	uint8_t return_value = 0;
 	uint8_t no_errors = 0;
 	uint8_t NACK_error = 0xFE;
-	uint8_t send_value=device_addr<<1;  // lsb will be ‘0’
+	uint8_t send_value= (device_addr<<1);  // lsb will be ‘0’
 	TWI_addr->TWCR =((1<<TWINT)|(1<<TWSTA)|(1<<TWEN));
 	
 	do
@@ -159,7 +159,7 @@ uint8_t TWI_Master_Transmit(volatile TWI_t * TWI_addr, uint8_t device_addr,uint
 		
 		if(temp8==0x18)   // SLA+W sent, ACK received
 		{
-			TWI_addr->TWDR=send_value;
+			TWI_addr->TWDR = send_value;
 			TWI_addr->TWCR=((1<<TWINT)|(1<<TWEN));
 		}
 		else if(temp8==0x28)  // Data sent, ACK received
@@ -167,7 +167,7 @@ uint8_t TWI_Master_Transmit(volatile TWI_t * TWI_addr, uint8_t device_addr,uint
 			TWI_addr->TWDR=send_value;
 			TWI_addr->TWCR=((1<<TWINT)|(1<<TWEN));
 		}
-		else if(temp8==0x20)  // SLA+W sent, NACK received
+		else if(temp8==0x20)  // SLA+W sent, NACK received ------ Debugger says temp8 = 0x8, but it sets return to NACK_error
 		{
 			TWI_addr->TWCR=((1<<TWINT)|(1<<TWSTO)|(1<<TWEN));
 			do
@@ -177,6 +177,14 @@ uint8_t TWI_Master_Transmit(volatile TWI_t * TWI_addr, uint8_t device_addr,uint
 			return_value=NACK_error;
 		}
 	}
+	
+	do
+	{
+		status=TWI_addr->TWCR;
+	}while((status&0x80)==0);
+	// Read the status value to determine what to do next
+	//temp8=((TWI_addr->TWSR)&0xF8);  // Clear lower three bits
+	
 	if(temp8==0x18)   // SLA+W sent, ACK received
 	{
 		TWI_addr->TWDR=send_value;

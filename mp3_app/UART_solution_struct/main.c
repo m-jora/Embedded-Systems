@@ -28,7 +28,7 @@ int main(void)
 	uint8_t SPI_error = SPI_Master_Init(SPI0_base, 400000UL);
 	uint8_t SD_error = SD_Card_Init();
 	uint8_t SPI_error2 = SPI_Master_Init(SPI0_base, 25000000UL);
-	uint8_t TWI_error = TWI_Master_Init(TWI1_Base, 2500UL); // May not work
+	uint8_t TWI_error = TWI_Master_Init(TWI1_Base, 2500UL);
 	
 	// Testing
 	/*sprintf(p_buffer, "\n\rSPI_error: 0x%X\n\r", SPI_error);
@@ -39,9 +39,6 @@ int main(void)
 	UART_Transmit_String(UART1, 0, p_buffer);*/
 	sprintf(p_buffer, "\n\rTWI_error: 0x%X\n\r", TWI_error);
 	UART_Transmit_String(UART1, 0, p_buffer);
-// 	array[0] = 0x19;
-// 	array[1] = 0x20;
-// 	array[2] = 0xAC;
 	
 	STA013_Master_Init(p_buffer, array);
 	

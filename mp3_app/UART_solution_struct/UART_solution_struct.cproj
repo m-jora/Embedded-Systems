@@ -148,6 +148,9 @@
     <Compile Include="board_struct.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Config_Arrays.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="GPIO_Outputs.c">
       <SubType>compile</SubType>
     </Compile>
