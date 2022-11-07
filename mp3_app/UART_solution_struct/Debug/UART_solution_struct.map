@@ -736,18 +736,18 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2794
+.debug_info     0x00000000     0x2752
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x9bb C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
  .debug_info    0x000009bb       0xbd Config_Arrays.o
  .debug_info    0x00000a78      0x16f GPIO_Outputs.o
- .debug_info    0x00000be7      0x3b1 main.o
- .debug_info    0x00000f98      0x70f SD.o
- .debug_info    0x000016a7      0x44f SPI.o
- .debug_info    0x00001af6      0x522 STA013.o
- .debug_info    0x00002018      0x2e2 TWI.o
- .debug_info    0x000022fa      0x1d1 UART.o
- .debug_info    0x000024cb      0x2c9 UART_Print.o
+ .debug_info    0x00000be7      0x36f main.o
+ .debug_info    0x00000f56      0x70f SD.o
+ .debug_info    0x00001665      0x44f SPI.o
+ .debug_info    0x00001ab4      0x522 STA013.o
+ .debug_info    0x00001fd6      0x2e2 TWI.o
+ .debug_info    0x000022b8      0x1d1 UART.o
+ .debug_info    0x00002489      0x2c9 UART_Print.o
 
 .debug_abbrev   0x00000000     0x130f
  *(.debug_abbrev)
@@ -794,7 +794,7 @@ END GROUP
  .debug_str     0x000004b6       0x82 GPIO_Outputs.o
                                 0x1e5 (size before relaxing)
  .debug_str     0x00000538      0x12c main.o
-                                0x2cb (size before relaxing)
+                                0x2a3 (size before relaxing)
  .debug_str     0x00000664       0xc4 SD.o
                                 0x2b9 (size before relaxing)
  .debug_str     0x00000728       0x8c SPI.o

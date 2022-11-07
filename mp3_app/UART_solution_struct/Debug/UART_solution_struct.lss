@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000188  00000000  00000000  00002084  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00002794  00000000  00000000  0000220c  2**0
+  6 .debug_info   00002752  00000000  00000000  0000220c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000130f  00000000  00000000  000049a0  2**0
+  7 .debug_abbrev 0000130f  00000000  00000000  0000495e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001277  00000000  00000000  00005caf  2**0
+  8 .debug_line   00001277  00000000  00000000  00005c6d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000344  00000000  00000000  00006f28  2**2
+  9 .debug_frame  00000344  00000000  00000000  00006ee4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000907  00000000  00000000  0000726c  2**0
+ 10 .debug_str    00000907  00000000  00000000  00007228  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000013bb  00000000  00000000  00007b73  2**0
+ 11 .debug_loc    000013bb  00000000  00000000  00007b2f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000128  00000000  00000000  00008f2e  2**0
+ 12 .debug_ranges 00000128  00000000  00000000  00008eea  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -424,10 +424,10 @@ void GPIO_Output_Clear(volatile GPIO_t * port_addr, uint8_t pin_mask)
     10f8:	08 95       	ret
 
 000010fa <main>:
-#include "SPI.h"
 #include "TWI.h"
 #include "STA013.h"
 
+// Successfully demoed with Professor Younger
 int main(void)
 {
     10fa:	0f 93       	push	r16
@@ -517,11 +517,11 @@ int main(void)
     1188:	0f 90       	pop	r0
     118a:	0f 90       	pop	r0
     118c:	0f 90       	pop	r0
-		error_flag = Read_Block(512, array);
-		
-		// Printing
-		print_memory(UART1, 512, array);		
-	}
+// 		error_flag = Read_Block(512, array);
+// 		
+// 		// Printing
+// 		print_memory(UART1, 512, array);		
+// 	}
 }
     118e:	80 e0       	ldi	r24, 0x00	; 0
     1190:	90 e0       	ldi	r25, 0x00	; 0

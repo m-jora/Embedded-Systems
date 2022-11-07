@@ -14,6 +14,7 @@
 #include "TWI.h"
 #include "STA013.h"
 
+// Successfully demoed with Professor Younger
 int main(void)
 {
 	char string_in_SRAM [41] = "This is a string in SRAM - Garrett Mason & Harrison Heselbarth";
@@ -42,20 +43,20 @@ int main(void)
 	
 	STA013_Master_Init(p_buffer, array);
 	
-	while(0){
-		// Prompt user for read block address
-		sprintf(p_buffer, "\n\rEnter a block number to read:\n\r");
-		UART_Transmit_String(UART1, 0, p_buffer);
-		uint32_t user_input = Long_Serial_Input(UART1);
-		sprintf(p_buffer, "\n\rThe block number you entered: 0x%X\n\r", user_input);
-		UART_Transmit_String(UART1, 0, p_buffer);
-		
-		// Read block
-		SD_CS_active(SD_CS_port, SD_CS_pin);
-		error_flag = Send_Command(17, user_input);		
-		error_flag = Read_Block(512, array);
-		
-		// Printing
-		print_memory(UART1, 512, array);		
-	}
+// 	while(1){
+// 		// Prompt user for read block address
+// 		sprintf(p_buffer, "\n\rEnter a block number to read:\n\r");
+// 		UART_Transmit_String(UART1, 0, p_buffer);
+// 		uint32_t user_input = Long_Serial_Input(UART1);
+// 		sprintf(p_buffer, "\n\rThe block number you entered: 0x%X\n\r", user_input);
+// 		UART_Transmit_String(UART1, 0, p_buffer);
+// 		
+// 		// Read block
+// 		SD_CS_active(SD_CS_port, SD_CS_pin);
+// 		error_flag = Send_Command(17, user_input);		
+// 		error_flag = Read_Block(512, array);
+// 		
+// 		// Printing
+// 		print_memory(UART1, 512, array);		
+// 	}
 }
