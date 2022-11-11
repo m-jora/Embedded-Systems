@@ -151,6 +151,12 @@
     <Compile Include="Config_Arrays.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Directory_Functions_struct.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Directory_Functions_struct.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="GPIO_Outputs.c">
       <SubType>compile</SubType>
     </Compile>

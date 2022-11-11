@@ -15,27 +15,10 @@
 #define CMD58 (0x7A)
 #define CMD55 (0x77) // (to_hex)(55+64) = CMD address
 #define CMD41 (0x69) // Nice
-
 #define no_errors (0x00)
 
 
 uint8_t SPI_Master_Init(uint8_t volatile *SPI_addr, uint32_t clock_rate);
 uint8_t SPI_Transfer(uint8_t volatile *SPI_addr, uint8_t send_value);
-uint8_t Send_Command (uint8_t command, uint32_t argument);
-uint8_t Receive_Response (uint8_t number_of_bytes, uint8_t * array_name); 
-
-/*
-1.	D
-2.	D
-3F.	D
-4A.	D
-5A.	D
-6.	D
-7A.	D
-8.	D
-9.	
-
-
-*/
 
 #endif

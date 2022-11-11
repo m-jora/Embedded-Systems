@@ -133,8 +133,8 @@
 #define PORT_D1  1
 #define PORT_D0  0
 
-#define SPI0_base (0x4C)
-#define SPI1_base (0xAC)
+#define SPI0_base (volatile uint8_t *)(0x4C)
+#define SPI1_base (volatile uint8_t *)(0xAC)
 
 /***** Microcontroller SFR Addresses *******/
 /***** UARTS ******/

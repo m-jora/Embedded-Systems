@@ -4,6 +4,8 @@
 
 Config_Arrays.c
 
+Directory_Functions_struct.c
+
 GPIO_Outputs.c
 
 LEDS.c
