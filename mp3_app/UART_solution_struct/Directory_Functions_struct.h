@@ -2,7 +2,7 @@
 #define _Directory_Func_H
 
 /*Experiment Progress
-	Finished 3
+	Finished 7
 
 */
 
@@ -24,8 +24,8 @@ typedef struct
 {
   uint8_t SecPerClus;
   uint8_t FATtype;
-  uint8_t BytesPerSecShift;
-  uint8_t FATshift;
+  uint8_t BytesPerSecShift; //Not Set
+  uint8_t FATshift;			//Not Set
   uint16_t BytesPerSec;
   uint32_t FirstRootDirSec;
   uint32_t FirstDataSec;
@@ -43,6 +43,8 @@ uint8_t Read_Sector(uint32_t sector_number, uint16_t sector_size, uint8_t * arra
 uint8_t read8 (uint16_t offset, uint8_t * array_name);
 uint16_t read16 (uint16_t offset, uint8_t * array_name);uint32_t read32 (uint16_t offset, uint8_t * array_name);
 uint8_t mount_drive(uint8_t * array);
+uint32_t First_Sector(uint32_t Cluster_Num);
+uint32_t Find_Next_Clus(uint32_t cluster_num, uint8_t * array);
 
 
 FS_values_t * Export_Drive_values(void);

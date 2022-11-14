@@ -278,7 +278,7 @@ uint8_t mount_drive(uint8_t * array){
 	p_buffer = Export_print_buffer();
 	uint8_t error_flag, NumFATs;
 	uint16_t RootEntCnt, TotSec16, RsvdSecCnt;
-	uint32_t bpb_addr, TotSec32, DataSec, FATSz32, CountOfClusters;
+	uint32_t bpb_addr, TotSec32, DataSec, FATSz32, CountOfClusters, HiddSec, RootClus;
 	
 	error_flag = Send_Command(17, 0);
 	error_flag = Read_Block(512, array);
@@ -286,15 +286,12 @@ uint8_t mount_drive(uint8_t * array){
 	// Check if MBR
 	if((array[0] != 0xEB) && (array[0] != 0xE9)){
 		bpb_addr = read32(0x01C6, array);
-		sprintf(p_buffer, "\n\rbpb_add: 0x%X\n\r", bpb_addr);
-		UART_Transmit_String(UART1, 0, p_buffer);
 		
 		error_flag = Send_Command(17, bpb_addr);
 		error_flag = Read_Block(512, array);
 		if((array[0] != 0xEB) && (array[0] != 0xE9)){
 			return Disk_Error;
 		}
-		
 		
 		//RootDirSectors = ((BPB_RootEntCnt * 32) + (BPB_BytsPerSec-1)) / BPB_BytsPerSec
 		RootEntCnt = read16(0x0011, array);
@@ -304,34 +301,36 @@ uint8_t mount_drive(uint8_t * array){
 		//DataSec = TotSec – (BPB_ResvdSecCnt + (BPB_NumFATSs * FATSz) + RootDirSectors)
 		TotSec16 = read16(0x13, array);
 		TotSec32 = read32(0x20, array);
-		sprintf(p_buffer, "\n\rTotSec32: 0x%X\n\r", TotSec32);
-		UART_Transmit_String(UART1, 0, p_buffer);
 		RsvdSecCnt = read16(0x000E, array);
-		sprintf(p_buffer, "\n\rRsvdSecCnt: 0x%X\n\r", RsvdSecCnt);
-		UART_Transmit_String(UART1, 0, p_buffer);
 		NumFATs = read8(0x0010, array);
-		sprintf(p_buffer, "\n\rNumFATs: 0x%X\n\r", NumFATs);
-		UART_Transmit_String(UART1, 0, p_buffer);
 		FATSz32 = read32(0x0024, array);
-		sprintf(p_buffer, "\n\rFATSz32: 0x%X\n\r", FATSz32);
-		UART_Transmit_String(UART1, 0, p_buffer);
 		
 		if(FATSz32 == 0){
 			return Disk_Error;
 		}
 		
-		if(TotSec16 == 0){
+		if(TotSec16 != 0){
 			DataSec = TotSec16 - (RsvdSecCnt + (NumFATs * FATSz32) + Drive_values->RootDirSecs);
 		}
 		else{
 			DataSec = TotSec32 - (RsvdSecCnt + (NumFATs * FATSz32) + Drive_values->RootDirSecs);
 		}
 		
-		sprintf(p_buffer, "\n\rDataSec: 0x%X\n\r", DataSec);
-		UART_Transmit_String(UART1, 0, p_buffer);
-		
 		// CountOfClusters = DataSec / SecPerClus
 		CountOfClusters = DataSec / Drive_values->SecPerClus;
+		
+		HiddSec = read32(0x001C, array);
+		
+		// FirstDataSector = BPB_ResvdSecCnt + (BPB_NumFATs * FATSz) + RootDirSectors + MBR_RelativeSectors
+		Drive_values->FirstDataSec = RsvdSecCnt + (NumFATs * FATSz32) + Drive_values->RootDirSecs + HiddSec;
+		
+		// StartOfFAT = BPB_ResvdSecCnt + MBR_RelativeSectors
+		Drive_values->StartofFAT = RsvdSecCnt + HiddSec;
+		
+		RootClus = read32(0x2C, array);
+		
+		// FirstRootDirSecNum = ((BPB_RootClus - 2) * BPB_SecPerClus) + FirstDataSector
+		Drive_values->FirstRootDirSec = ((RootClus - 2) * Drive_values->SecPerClus) + Drive_values->FirstDataSec;
 		
 		// Fat Type
 		if(CountOfClusters < 65525){
@@ -340,8 +339,35 @@ uint8_t mount_drive(uint8_t * array){
 		else{
 			Drive_values->FATtype = 32;
 			return no_errors;
-		}
-		
+		}		
 	}
+}
+
+uint32_t First_Sector(uint32_t Cluster_Num){
+	FS_values_t * Drive_values = Export_Drive_values();
+	uint32_t FirstSectorOfCluster;
+	if(Cluster_Num == 0){
+		return Drive_values->FirstRootDirSec;
+	}
+	else{
+		// FirstSectorofCluster = ((N – 2) * BPB_SecPerClus) + FirstDataSector;
+		FirstSectorOfCluster = ((Cluster_Num - 2) * Drive_values->SecPerClus) + Drive_values->FirstDataSec;
+	}
+}
+
+uint32_t Find_Next_Clus(uint32_t cluster_num, uint8_t * array){	FS_values_t * Drive_p = Export_Drive_values();
+	uint32_t FATOffset, ThisFATSecNum, ThisFATEntOffset, return_clus;
 	
+	// Step 1
+	uint32_t Sector = ((cluster_num * Drive_p->FATtype) / Drive_p->BytesPerSec) + Drive_p->StartofFAT;
+	// Step 2
+	Read_Sector(Sector, Drive_p->BytesPerSec,array);
+	// Step 3
+	ThisFATEntOffset = (FATOffset % Drive_p->BytesPerSec);
+	FATOffset = (cluster_num*Drive_p->FATtype);
+	ThisFATEntOffset=(uint16_t)(FATOffset % (Drive_p->BytesPerSec));
+	// Step 4
+	return_clus=(read32(FATOffset, array) & 0x0FFFFFFF);
+	
+	return return_clus;
 }

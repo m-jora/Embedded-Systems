@@ -29,6 +29,10 @@ int main(void)
 	uint8_t SD_error = SD_Card_Init();
 	uint8_t SPI_error2 = SPI_Master_Init(SPI0_base, 25000000UL);
 	uint8_t TWI_error = TWI_Master_Init(TWI1_Base, 2500UL);
+	SD_CS_active(SD_CS_port, SD_CS_pin);
+	uint8_t Mount_error = mount_drive(array);
+	sprintf(p_buffer, "\n\rMount Error: 0x%X\n\r", Mount_error);
+	UART_Transmit_String(UART1, 0, p_buffer);
 	
 	/*uint8_t array[3];*/
 	//STA013_Master_Init(p_buffer, array);
@@ -42,12 +46,11 @@ int main(void)
 		UART_Transmit_String(UART1, 0, p_buffer);
 		
 		// Read block
-		SD_CS_active(SD_CS_port, SD_CS_pin);
 		error_flag = Send_Command(17, user_input);		
 		error_flag = Read_Block(512, array);
 		
-		// Printing
-		print_memory(UART1, 512, array);		
-		mount_drive(array);
+		// 	Printing
+		print_memory(UART1, 512, array);
+		
 	}
 }
