@@ -19,7 +19,8 @@ main.d main.o: .././main.c \
  .././UART_Print.h .././print_memory.h .././Long_Serial_In.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././SD.h .././SPI.h .././TWI.h .././STA013.h
+ .././SD.h .././SPI.h .././TWI.h .././STA013.h \
+ .././Directory_Functions_struct.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -78,3 +79,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././TWI.h:
 
 .././STA013.h:
+
+.././Directory_Functions_struct.h:

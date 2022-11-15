@@ -141,7 +141,7 @@ uint8_t SD_Card_Init (void){
 
 uint8_t Read_Block (uint16_t number_of_bytes, uint8_t * array){
 	uint8_t rcvd_value;
-	uint8_t timeout = 0;
+	uint16_t timeout = 0;
 	uint8_t error_flag;
 	do{
 		rcvd_value = SPI_Transfer(SPI0_base, 0xFF);
@@ -163,10 +163,8 @@ uint8_t Read_Block (uint16_t number_of_bytes, uint8_t * array){
 			rcvd_value = SPI_Transfer(SPI0_base, 0xFF);
 			rcvd_value = SPI_Transfer(SPI0_base, 0xFF);
 			rcvd_value = SPI_Transfer(SPI0_base, 0xFF);
-			
-			
 		}
-		return rcvd_value;
+		return 0;
 	}
 }
 

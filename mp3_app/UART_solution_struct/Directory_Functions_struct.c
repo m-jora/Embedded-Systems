@@ -59,14 +59,15 @@ uint16_t  Print_Directory(uint32_t Sector_num, uint8_t * array_in)
    }
    Sector=Sector_num;
    error_flag=Read_Sector(Sector,Drive_values.BytesPerSec,values);
+   print_memory(UART1, 512, values);
    if(error_flag==no_errors)
    {
      do
      {
-        temp8=read_value_8(0+i,values);  // read first byte to see if empty
-        if((temp8!=0xE5)&&(temp8!=0x00))
+        temp8=read8(0+i,values);  // read first byte to see if empty
+        if((temp8!=0xE5)&&(temp8!=0x00)) // -------------------------temp8 = 0x00 for some reason--------
 	    {  
-	       attr=read_value_8(0x0b+i,values);
+	       attr=read8(0x0b+i,values);
 		   if((attr&0x0E)==0)   // if hidden, system or Vol_ID bit is set do not print
 		   {
 		      entries++;
@@ -74,14 +75,14 @@ uint16_t  Print_Directory(uint32_t Sector_num, uint8_t * array_in)
 		      UART_Transmit_String(UART1,0,prnt_bffr);
 			  for(j=0;j<8;j++)
 			  {
-			     out_val=read_value_8(i+j,values);   // print the 8 byte name
+			     out_val=read8(i+j,values);   // print the 8 byte name
 			     UART_Transmit(UART1,out_val);
 			  }
               if((attr&0x10)==0x10)  // indicates directory
 			  {
 			     for(j=8;j<11;j++)
 			     {
-			        out_val=read_value_8(i+j,values);
+			        out_val=read8(i+j,values);
 			        UART_Transmit(UART1,out_val);
 			     }
 			     sprintf(prnt_bffr,"[DIR]\r\n");
@@ -92,7 +93,7 @@ uint16_t  Print_Directory(uint32_t Sector_num, uint8_t * array_in)
 			     UART_Transmit(UART1,0x2E);       
 			     for(j=8;j<11;j++)
 			     {
-			        out_val=read_value_8(i+j,values);
+			        out_val=read8(i+j,values);
 			        UART_Transmit(UART1,out_val);
 			     }
 			     UART_Transmit(UART1,CR);
@@ -166,10 +167,10 @@ uint32_t Read_Dir_Entry(uint32_t Sector_num, uint16_t Entry, uint8_t * array_in)
    {
      do
      {
-        temp8=read_value_8(0+i,values);  // read first byte to see if empty
+        temp8=read8(0+i,values);  // read first byte to see if empty
         if((temp8!=0xE5)&&(temp8!=0x00))
 	    {  
-	       attr=read_value_8(0x0b+i,values);
+	       attr=read8(0x0b+i,values);
 		   if((attr&0x0E)==0)    // if hidden do not print
 		   {
 		      entries++;
@@ -177,15 +178,15 @@ uint32_t Read_Dir_Entry(uint32_t Sector_num, uint16_t Entry, uint8_t * array_in)
               {
 			    if(Drive_values.FATtype==FAT32)
                 {
-                   return_clus=read_value_8(21+i,values);
+                   return_clus=read8(21+i,values);
 				   return_clus=return_clus<<8;
-                   return_clus|=read_value_8(20+i,values);
+                   return_clus|=read8(20+i,values);
                    return_clus=return_clus<<8;
                 }
-                return_clus|=read_value_8(27+i,values);
+                return_clus|=read8(27+i,values);
 			    return_clus=return_clus<<8;
-                return_clus|=read_value_8(26+i,values);
-			    attr=read_value_8(0x0b+i,values);
+                return_clus|=read8(26+i,values);
+			    attr=read8(0x0b+i,values);
 			    if(attr&0x10) return_clus|=directory_bit;
                 temp8=0;    // forces a function exit
               }
@@ -226,12 +227,13 @@ uint32_t Read_Dir_Entry(uint32_t Sector_num, uint16_t Entry, uint8_t * array_in)
 	 uint8_t No_Disk_Error = 0;
 	 
 	 uint8_t SDtype,error_flag=No_Disk_Error;
+	 SDtype = 0;
 	 //SDtype=Return_SD_Card_Type(); // HC=0, no change to sector number
 	 // SC=9, multiplies sector number by 512 to convert to byte addr.
 	 SD_CS_active (SD_CS_port, SD_CS_pin); //nCS0=0;
 	 error_flag=Send_Command(17,(sector_number<<SDtype));
 	 if(error_flag==no_errors)
-	 error_flag=Read_Block(sector_size,array_for_data);
+	 error_flag=Read_Block(sector_size,array_for_data); //I return error for some reason
 	 SD_CS_inactive (SD_CS_port, SD_CS_pin); // nCS0=1;
 	 if(error_flag!=no_errors)
 	 {
@@ -317,6 +319,7 @@ uint8_t mount_drive(uint8_t * array){
 		}
 		
 		// CountOfClusters = DataSec / SecPerClus
+		Drive_values->SecPerClus = read8(0x0D, array);
 		CountOfClusters = DataSec / Drive_values->SecPerClus;
 		
 		HiddSec = read32(0x001C, array);
