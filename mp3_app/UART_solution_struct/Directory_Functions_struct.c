@@ -59,7 +59,6 @@ uint16_t  Print_Directory(uint32_t Sector_num, uint8_t * array_in)
    }
    Sector=Sector_num;
    error_flag=Read_Sector(Sector,Drive_values.BytesPerSec,values);
-   print_memory(UART1, 512, values);
    if(error_flag==no_errors)
    {
      do
@@ -355,6 +354,7 @@ uint32_t First_Sector(uint32_t Cluster_Num){
 	else{
 		// FirstSectorofCluster = ((N – 2) * BPB_SecPerClus) + FirstDataSector;
 		FirstSectorOfCluster = ((Cluster_Num - 2) * Drive_values->SecPerClus) + Drive_values->FirstDataSec;
+		return FirstSectorOfCluster;
 	}
 }
 
@@ -373,4 +373,50 @@ uint32_t Find_Next_Clus(uint32_t cluster_num, uint8_t * array){	FS_values_t * D
 	return_clus=(read32(FATOffset, array) & 0x0FFFFFFF);
 	
 	return return_clus;
+}
+
+uint8_t Print_File(uint32_t cluster_num, uint8_t * array){
+	FS_values_t * Drive_values = Export_Drive_values();
+	char * p_buffer = Export_print_buffer();
+	uint8_t read_err;
+	uint32_t index = 0, curr_sector;
+	char cont = 'y';
+	
+	while(cont == 'y'){
+		if(index == 0){
+			curr_sector = First_Sector(cluster_num);
+		}
+		
+		// Print index
+		sprintf(p_buffer, "\n\rindex: 0x%X\n\r", index);
+		UART_Transmit_String(UART1, 0, p_buffer);
+		// Print clus_num
+		sprintf(p_buffer, "\n\rclus_num: 0x%X\n\r", cluster_num);
+		UART_Transmit_String(UART1, 0, p_buffer);
+		// Print curr_sec
+		sprintf(p_buffer, "\n\rcurr_sector: 0x%X\n\r", curr_sector);
+		UART_Transmit_String(UART1, 0, p_buffer);
+		
+ 		read_err = Read_Sector(curr_sector, 512, array); // Causes Print_Dir in main to malfunction
+ 		print_memory(UART1, 512, array);
+		
+		curr_sector++;
+		index++;
+		
+		// Gets next cluster if at end of current
+		if(index == Drive_values->SecPerClus){
+			cluster_num = Find_Next_Clus(cluster_num, array);
+			index = 0;
+		}
+		
+		// Check for end of file
+		if(array[512] == 0xFF && array[511] == 0xFF && array[510] == 0xFF &&array[509] == 0x0F){ // 0x0FFFFFFF
+			cont="n";
+		}
+		
+		// Prompt user for read block address
+		sprintf(p_buffer, "\n\rWould you like to continue (y/n)?\n\r");
+		UART_Transmit_String(UART1, 0, p_buffer);
+		cont = UART_Receive(UART1);
+	}
 }

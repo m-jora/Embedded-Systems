@@ -45,6 +45,7 @@ uint16_t read16 (uint16_t offset, uint8_t * array_name);uint32_t read32 (uint16
 uint8_t mount_drive(uint8_t * array);
 uint32_t First_Sector(uint32_t Cluster_Num);
 uint32_t Find_Next_Clus(uint32_t cluster_num, uint8_t * array);
+uint8_t Print_File(uint32_t cluster_num, uint8_t * array);
 
 
 FS_values_t * Export_Drive_values(void);
