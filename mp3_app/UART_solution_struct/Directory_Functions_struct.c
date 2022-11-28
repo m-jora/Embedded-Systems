@@ -348,7 +348,7 @@ uint8_t mount_drive(uint8_t * array){
 uint32_t First_Sector(uint32_t Cluster_Num){
 	FS_values_t * Drive_values = Export_Drive_values();
 	uint32_t FirstSectorOfCluster;
-	if(Cluster_Num == 0){
+	if(Cluster_Num == 0 || Cluster_Num == 0x10000000){ //first cluster or dir ".." was selected
 		return Drive_values->FirstRootDirSec;
 	}
 	else{
