@@ -160,6 +160,9 @@
     <Compile Include="GPIO_Outputs.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="GPIO_Outputs.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LEDS.c">
       <SubType>compile</SubType>
     </Compile>

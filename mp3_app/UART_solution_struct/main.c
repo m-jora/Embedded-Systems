@@ -39,9 +39,30 @@ int main(void)
 	UART_Transmit_String(UART1, 0, p_buffer);
 	uint32_t entry_num, clus_num;
 
+	// Experiment 5 Initializations
+	// Set up DATA_REQ input
+	GPIO_Output_Set(PC,(DATA_REQ));  //#define DATA_REQ (1<<6) Pull_Up_Enable
+	GPIO_Output_Set(PC,(DATA_REQ));
+	// Start_Cluster is passed to this function
+	uint32_t sector = First_Sector(0); // 0 is Start_Cluster //replace with curr_dir later
+	// Used to keep track Sectors in a Cluster
+	uint32_t sector_offset=0;
+	// Flags used to indicate the active buffer
+	uint8_t buf_flag1=1;
+	uint8_t buf_flag2=0;
+	// Fill both buffers
+	uint16_t index1=0;
+	uint8_t buffer1[512];
+	Read_Sector(sector+sector_offset, 512, buffer1);
+	sector_offset++;
+	uint16_t index2=0;
+	uint8_t buffer2[512];
+	Read_Sector(sector+sector_offset, 512, buffer2);
+	sector_offset++;
+	uint8_t temp8;
 	
 	/*uint8_t array[3];*/
-	//STA013_Master_Init(p_buffer, array);
+	t(p_buffer, array);
 	
 	while(1){
 		// Get number of entries
@@ -56,8 +77,7 @@ int main(void)
 			entry_num = Long_Serial_Input(UART1);
 			sprintf(p_buffer, "\n\rThe entry number you entered: 0x%X\n\r", entry_num);
 			UART_Transmit_String(UART1, 0, p_buffer);
-		}
-		while(entry_num > num_of_entries);
+		}while(entry_num > num_of_entries);
 		
 		clus_num = Read_Dir_Entry(current_dir, entry_num, array); // Bit 28: 1 for dir 0 for file // Bit 31: 1 for err
 		
@@ -67,8 +87,52 @@ int main(void)
 		}
 		// If file
 		else{
-			Print_File(clus_num, array);
-		}
+			//Print_File(clus_num, array);
+			
+			do{
+				temp8=Read_Pin(PC,(DATA_REQ));
+				if(temp8==0)
+				{
+					GPIO_Output_Set(PD,(BIT_EN));   //#define BIT_EN (1<<6)
+					SPI_Transfer(SPI0_base,buffer1[index1]);
+					GPIO_Output_Clear(PD,(BIT_EN));
+					index1++;
+					if(index1>511)
+					{
+						if(index2>511)
+						{
+							index2=0;
+							Read_Sector(sector+sector_offset, 512, buffer2);
+							sector_offset++;
+						}
+						buf_flag1=0;
+						buf_flag2=1;
+					}
+					/////
+					else // DATA_REQ inactive
+					{
+						if(index2>511)
+						{
+							index2=0;
+							Read_Sector(sector+sector_offset, 512, buffer2);
+							sector_offset++;
+						}
+						else
+						{
+							if(index1>511)
+							{
+								buf_flag1=0;
+								buf_flag2=1;
+							}
+						}
+					}
+				}
+			}while(buf_flag1==1);
+			// There is another nearly identical do-loop for buf_flag2
+				
+		}	
+	}
+		
 		
 		
 // 		// Prompt user for read block address
@@ -85,7 +149,5 @@ int main(void)
 // 		SD_CS_inactive(SD_CS_port, SD_CS_pin);
 // 		
 // 		// 	Printing
-// 		print_memory(UART1, 512, array); 		
-		
-	}
+// 		print_memory(UART1, 512, array);	
 }

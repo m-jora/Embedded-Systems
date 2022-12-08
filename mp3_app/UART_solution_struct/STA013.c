@@ -2,6 +2,7 @@
 #include "TWI.h"
 #include <stdio.h>
 #include <avr/pgmspace.h>
+#include "GPIO_Outputs.h"
 
 extern const uint8_t CONFIG[];
 extern const uint8_t CONFIG2[];

@@ -136,6 +136,9 @@
 #define SPI0_base (volatile uint8_t *)(0x4C)
 #define SPI1_base (volatile uint8_t *)(0xAC)
 
+#define DATA_REQ (1<<6)
+#define BIT_EN (1<<6)
+
 /***** Microcontroller SFR Addresses *******/
 /***** UARTS ******/
 typedef struct UART
