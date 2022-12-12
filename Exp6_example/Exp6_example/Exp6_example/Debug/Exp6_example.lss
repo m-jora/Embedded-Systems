@@ -1,0 +1,1606 @@
+
+Exp6_example.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000b94  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000b20  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000050  00800100  00800100  00000b94  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000b94  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000bc4  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000198  00000000  00000000  00000c04  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00002a33  00000000  00000000  00000d9c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000011a7  00000000  00000000  000037cf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00001124  00000000  00000000  00004976  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000340  00000000  00000000  00005a9c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000892  00000000  00000000  00005ddc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000104b  00000000  00000000  0000666e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000110  00000000  00000000  000076b9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 b7 01 	jmp	0x36e	; 0x36e <__ctors_end>
+   4:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+   8:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+   c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  10:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  14:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  18:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  1c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  20:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  24:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  28:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  2c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  30:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  34:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  38:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  3c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  40:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  44:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  48:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  4c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  50:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  54:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  58:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  5c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  60:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  64:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  68:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  6c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  70:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  74:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  78:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  7c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  80:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  84:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  88:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  8c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  90:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  94:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  98:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  9c:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  a0:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  a4:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  a8:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  ac:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  b0:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  b4:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  b8:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  bc:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  c0:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  c4:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+  c8:	0c 94 c9 01 	jmp	0x392	; 0x392 <__bad_interrupt>
+
+000000cc <Hello_String>:
+  cc:	48 65 6c 6c 6f 20 57 6f 72 6c 64 21 0a 0d 00        Hello World!...
+
+000000db <OLED_Init_Commands>:
+  db:	ae d5 80 a8 1f d3 00 40 8d 14 a1 c8 da 02 81 8f     .......@........
+  eb:	d9 f1 db 40 a4 a6 af ff                             ...@....
+
+000000f3 <OLED_ASCII>:
+	...
+ 143:	00 fe 7c 38 80 80 38 7c fe 00 0c 14 00 0c 14 14     ..|8..8|........
+ 153:	0c 00 14 0c 88 cc ee cc 88 22 66 ee 66 22 38 7c     ........."f.f"8|
+ 163:	7c 7c 38 20 70 a8 20 3e 08 04 fe 04 08 20 40 fe     ||8 p. >..... @.
+ 173:	40 20 10 10 54 38 10 10 38 54 10 10 80 88 94 a2     @ ..T8..8T......
+ 183:	80 80 a2 94 88 80 40 70 7c 70 40 04 1c 7c 1c 04     ......@p|p@..|..
+ 193:	00 00 00 00 00 00 00 9e 00 00 00 0e 00 0e 00 28     ...............(
+ 1a3:	fe 28 fe 28 48 52 fe 52 22 46 26 10 c8 c4 6c 92     .(.(HR.R"F&...l.
+ 1b3:	aa 44 a0 00 0a 06 00 00 00 38 44 82 00 00 82 44     .D.......8D....D
+ 1c3:	38 00 28 10 7c 10 28 10 10 7c 10 10 00 a0 30 00     8.(.|.(..|....0.
+ 1d3:	00 10 10 10 10 10 00 c0 c0 00 00 40 20 10 08 04     ...........@ ...
+ 1e3:	7c a2 92 8a 7c 00 84 fe 80 00 84 c2 a2 92 8c 42     |...|..........B
+ 1f3:	82 8a 96 62 30 28 24 fe 20 4e 8a 8a 8a 72 78 94     ...b0($. N...rx.
+ 203:	92 92 60 06 02 e2 12 0e 6c 92 92 92 6c 0c 92 92     ..`.....l...l...
+ 213:	52 3c 00 6c 6c 00 00 00 ac 6c 00 00 10 28 44 82     R<.ll....l...(D.
+ 223:	00 28 28 28 28 28 00 82 44 28 10 04 02 a2 12 0c     .(((((..D(......
+ 233:	64 92 f2 82 7c f8 24 22 24 f8 fe 92 92 92 6c 7c     d...|.$"$.....l|
+ 243:	82 82 82 44 fe 82 82 44 38 fe 92 92 92 82 fe 12     ...D...D8.......
+ 253:	12 12 02 7c 82 92 92 f4 fe 10 10 10 fe 00 82 fe     ...|............
+ 263:	82 00 40 80 82 7e 02 fe 10 28 44 82 fe 80 80 80     ..@..~...(D.....
+ 273:	80 fe 04 18 04 fe fe 08 10 20 fe 7c 82 82 82 7c     ......... .|...|
+ 283:	fe 12 12 12 0c 7c 82 a2 42 bc fe 12 32 52 8c 4c     .....|..B...2R.L
+ 293:	92 92 92 64 02 02 fe 02 02 7e 80 80 80 7e 3e 40     ...d.....~...~>@
+ 2a3:	80 40 3e 7e 80 70 80 7e c6 28 10 28 c6 0e 10 e0     .@>~.p.~.(.(....
+ 2b3:	10 0e c2 a2 92 8a 86 00 fe 82 82 00 04 08 10 20     ............... 
+ 2c3:	40 00 82 82 fe 00 08 04 02 04 08 80 80 80 80 80     @...............
+ 2d3:	00 02 04 08 00 40 a8 a8 a8 f0 fe 90 88 88 70 70     .....@........pp
+ 2e3:	88 88 88 40 70 88 88 90 fe 70 a8 a8 a8 30 10 fc     ...@p....p...0..
+ 2f3:	12 02 04 10 a8 a8 a8 78 fe 10 08 08 f0 00 90 fa     .......x........
+ 303:	80 00 40 80 88 7a 00 fe 20 50 88 00 00 82 fe 80     ..@..z.. P......
+ 313:	00 f8 08 f0 08 f0 f8 10 08 08 f0 70 88 88 88 70     ...........p...p
+ 323:	f8 28 28 28 10 10 28 28 30 f8 f8 10 08 08 10 90     .(((..((0.......
+ 333:	a8 a8 a8 40 08 7e 88 80 40 78 80 80 40 f8 38 40     ...@.~..@x..@.8@
+ 343:	80 40 38 78 80 60 80 78 88 50 20 50 88 18 a0 a0     .@8x.`.x.P P....
+ 353:	a0 78 88 c8 a8 98 88 00 10 6c 82 00 00 00 fe 00     .x.......l......
+ 363:	00 00 82 6c 10 00 20 10 10 20 10                    ...l.. .. .
+
+0000036e <__ctors_end>:
+ 36e:	11 24       	eor	r1, r1
+ 370:	1f be       	out	0x3f, r1	; 63
+ 372:	cf ef       	ldi	r28, 0xFF	; 255
+ 374:	d8 e0       	ldi	r29, 0x08	; 8
+ 376:	de bf       	out	0x3e, r29	; 62
+ 378:	cd bf       	out	0x3d, r28	; 61
+
+0000037a <__do_clear_bss>:
+ 37a:	21 e0       	ldi	r18, 0x01	; 1
+ 37c:	a0 e0       	ldi	r26, 0x00	; 0
+ 37e:	b1 e0       	ldi	r27, 0x01	; 1
+ 380:	01 c0       	rjmp	.+2      	; 0x384 <.do_clear_bss_start>
+
+00000382 <.do_clear_bss_loop>:
+ 382:	1d 92       	st	X+, r1
+
+00000384 <.do_clear_bss_start>:
+ 384:	a0 35       	cpi	r26, 0x50	; 80
+ 386:	b2 07       	cpc	r27, r18
+ 388:	e1 f7       	brne	.-8      	; 0x382 <.do_clear_bss_loop>
+ 38a:	0e 94 e4 01 	call	0x3c8	; 0x3c8 <main>
+ 38e:	0c 94 8e 05 	jmp	0xb1c	; 0xb1c <_exit>
+
+00000392 <__bad_interrupt>:
+ 392:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000396 <GPIO_Output_Init>:
+#include "GPIO_Outputs.h"
+
+void GPIO_Output_Init(volatile GPIO_t * port_addr, uint8_t pin_mask)
+{
+	//Set Port Pin to be an output with initial value '1'
+	(port_addr->GPIO_DDR)|=(pin_mask);    // Set DDRx to make port pin an output
+ 396:	fc 01       	movw	r30, r24
+ 398:	21 81       	ldd	r18, Z+1	; 0x01
+ 39a:	62 2b       	or	r22, r18
+ 39c:	61 83       	std	Z+1, r22	; 0x01
+ 39e:	08 95       	ret
+
+000003a0 <GPIO_Output_Set>:
+
+
+void GPIO_Output_Set(volatile GPIO_t * port_addr, uint8_t pin_mask)
+{
+	//control = 0, LED off; control = 1, LED on 
+		(port_addr->GPIO_PORT)|=(pin_mask);    // Set PORTx PORTx pin to value of '1'
+ 3a0:	fc 01       	movw	r30, r24
+ 3a2:	22 81       	ldd	r18, Z+2	; 0x02
+ 3a4:	62 2b       	or	r22, r18
+ 3a6:	62 83       	std	Z+2, r22	; 0x02
+ 3a8:	08 95       	ret
+
+000003aa <GPIO_Output_Clear>:
+}
+
+void GPIO_Output_Clear(volatile GPIO_t * port_addr, uint8_t pin_mask)
+{
+ 3aa:	fc 01       	movw	r30, r24
+	//control = 0, LED off; control = 1, LED on
+		(port_addr->GPIO_PORT)&=~(pin_mask);    // Clear PORTx pin to value of '0'
+ 3ac:	92 81       	ldd	r25, Z+2	; 0x02
+ 3ae:	60 95       	com	r22
+ 3b0:	69 23       	and	r22, r25
+ 3b2:	62 83       	std	Z+2, r22	; 0x02
+ 3b4:	08 95       	ret
+
+000003b6 <LEDS_Init>:
+
+void LEDS_Init(volatile GPIO_t * port_addr, uint8_t pin_mask)
+{
+	//Set Port Pin to be an output with initial value '1'
+	//port_addr->GPIO_PORT|=(pin_mask);    // Set PORTx for initial value of '1'
+	GPIO_Output_Init(port_addr, pin_mask);    // Set DDRx to make port pin an output
+ 3b6:	0e 94 cb 01 	call	0x396	; 0x396 <GPIO_Output_Init>
+ 3ba:	08 95       	ret
+
+000003bc <LEDS_Off>:
+
+
+void LEDS_Off(volatile GPIO_t * port_addr, uint8_t pin_mask)
+{
+	//control = 0, LED off; control = 1, LED on 
+		GPIO_Output_Set(port_addr, pin_mask);    // Set PORTx PORTx pin to value of '1'
+ 3bc:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 3c0:	08 95       	ret
+
+000003c2 <LEDS_On>:
+}
+
+void LEDS_On(volatile GPIO_t * port_addr, uint8_t pin_mask)
+{
+	//control = 0, LED off; control = 1, LED on
+		GPIO_Output_Clear(port_addr, pin_mask);   // Clear PORTx pin to value of '0'
+ 3c2:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 3c6:	08 95       	ret
+
+000003c8 <main>:
+const char Hello_String[15]PROGMEM={"Hello World!\n\r"};
+
+int main(void)
+{
+    char *print_p;
+	print_p=Export_print_buffer();
+ 3c8:	0e 94 12 05 	call	0xa24	; 0xa24 <Export_print_buffer>
+ 3cc:	ec 01       	movw	r28, r24
+	//*** UART_Print and OLED functions added for debugging tools and messages ****
+	UART_Init(UART1,9600);
+ 3ce:	60 e8       	ldi	r22, 0x80	; 128
+ 3d0:	75 e2       	ldi	r23, 0x25	; 37
+ 3d2:	88 ec       	ldi	r24, 0xC8	; 200
+ 3d4:	90 e0       	ldi	r25, 0x00	; 0
+ 3d6:	0e 94 e1 04 	call	0x9c2	; 0x9c2 <UART_Init>
+	SPI_Master_Init(OLED_SPI_Port,10000000);
+ 3da:	40 e8       	ldi	r20, 0x80	; 128
+ 3dc:	56 e9       	ldi	r21, 0x96	; 150
+ 3de:	68 e9       	ldi	r22, 0x98	; 152
+ 3e0:	70 e0       	ldi	r23, 0x00	; 0
+ 3e2:	8c e4       	ldi	r24, 0x4C	; 76
+ 3e4:	90 e0       	ldi	r25, 0x00	; 0
+ 3e6:	0e 94 5d 04 	call	0x8ba	; 0x8ba <SPI_Master_Init>
+	OLED_Init(OLED_SPI_Port);
+ 3ea:	8c e4       	ldi	r24, 0x4C	; 76
+ 3ec:	90 e0       	ldi	r25, 0x00	; 0
+ 3ee:	0e 94 be 03 	call	0x77c	; 0x77c <OLED_Init>
+	Copy_String_to_Buffer(Hello_String,0,print_p);
+ 3f2:	ae 01       	movw	r20, r28
+ 3f4:	60 e0       	ldi	r22, 0x00	; 0
+ 3f6:	8c ec       	ldi	r24, 0xCC	; 204
+ 3f8:	90 e0       	ldi	r25, 0x00	; 0
+ 3fa:	0e 94 15 05 	call	0xa2a	; 0xa2a <Copy_String_to_Buffer>
+	UART_Transmit_String(UART1,0,print_p);
+ 3fe:	ae 01       	movw	r20, r28
+ 400:	60 e0       	ldi	r22, 0x00	; 0
+ 402:	88 ec       	ldi	r24, 0xC8	; 200
+ 404:	90 e0       	ldi	r25, 0x00	; 0
+ 406:	0e 94 3b 05 	call	0xa76	; 0xa76 <UART_Transmit_String>
+	OLED_Set_Line_0(OLED_SPI_Port);
+ 40a:	8c e4       	ldi	r24, 0x4C	; 76
+ 40c:	90 e0       	ldi	r25, 0x00	; 0
+ 40e:	0e 94 36 02 	call	0x46c	; 0x46c <OLED_Set_Line_0>
+	OLED_Transmit_String(OLED_SPI_Port,12,print_p);
+ 412:	ae 01       	movw	r20, r28
+ 414:	6c e0       	ldi	r22, 0x0C	; 12
+ 416:	8c e4       	ldi	r24, 0x4C	; 76
+ 418:	90 e0       	ldi	r25, 0x00	; 0
+ 41a:	0e 94 2c 04 	call	0x858	; 0x858 <OLED_Transmit_String>
+	//**** LED initialization ******
+	LEDS_Off(LED0_port,LED0_pin);
+ 41e:	60 e8       	ldi	r22, 0x80	; 128
+ 420:	86 e2       	ldi	r24, 0x26	; 38
+ 422:	90 e0       	ldi	r25, 0x00	; 0
+ 424:	0e 94 de 01 	call	0x3bc	; 0x3bc <LEDS_Off>
+	LEDS_Init(LED0_port,LED0_pin);
+ 428:	60 e8       	ldi	r22, 0x80	; 128
+ 42a:	86 e2       	ldi	r24, 0x26	; 38
+ 42c:	90 e0       	ldi	r25, 0x00	; 0
+ 42e:	0e 94 db 01 	call	0x3b6	; 0x3b6 <LEDS_Init>
+	//***** Main Loop: LED0 should always flash at around 0.5s on and 0.5s off  ****
+	//***** Do not change any of the code in the while(1) super loop ****
+    while (1) 
+    {
+		LEDS_On(LED0_port,LED0_pin);
+ 432:	60 e8       	ldi	r22, 0x80	; 128
+ 434:	86 e2       	ldi	r24, 0x26	; 38
+ 436:	90 e0       	ldi	r25, 0x00	; 0
+ 438:	0e 94 e1 01 	call	0x3c2	; 0x3c2 <LEDS_On>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 43c:	2f ef       	ldi	r18, 0xFF	; 255
+ 43e:	89 e6       	ldi	r24, 0x69	; 105
+ 440:	98 e1       	ldi	r25, 0x18	; 24
+ 442:	21 50       	subi	r18, 0x01	; 1
+ 444:	80 40       	sbci	r24, 0x00	; 0
+ 446:	90 40       	sbci	r25, 0x00	; 0
+ 448:	e1 f7       	brne	.-8      	; 0x442 <__EEPROM_REGION_LENGTH__+0x42>
+ 44a:	00 c0       	rjmp	.+0      	; 0x44c <__EEPROM_REGION_LENGTH__+0x4c>
+ 44c:	00 00       	nop
+		_delay_ms(500);
+		LEDS_Off(LED0_port,LED0_pin);
+ 44e:	60 e8       	ldi	r22, 0x80	; 128
+ 450:	86 e2       	ldi	r24, 0x26	; 38
+ 452:	90 e0       	ldi	r25, 0x00	; 0
+ 454:	0e 94 de 01 	call	0x3bc	; 0x3bc <LEDS_Off>
+ 458:	2f ef       	ldi	r18, 0xFF	; 255
+ 45a:	89 e6       	ldi	r24, 0x69	; 105
+ 45c:	98 e1       	ldi	r25, 0x18	; 24
+ 45e:	21 50       	subi	r18, 0x01	; 1
+ 460:	80 40       	sbci	r24, 0x00	; 0
+ 462:	90 40       	sbci	r25, 0x00	; 0
+ 464:	e1 f7       	brne	.-8      	; 0x45e <__EEPROM_REGION_LENGTH__+0x5e>
+ 466:	00 c0       	rjmp	.+0      	; 0x468 <__EEPROM_REGION_LENGTH__+0x68>
+ 468:	00 00       	nop
+ 46a:	e3 cf       	rjmp	.-58     	; 0x432 <__EEPROM_REGION_LENGTH__+0x32>
+
+0000046c <OLED_Set_Line_0>:
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+		SPI_Transmit(OLED_port, 0x00);
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+	}
+}
+ 46c:	cf 93       	push	r28
+ 46e:	df 93       	push	r29
+ 470:	ec 01       	movw	r28, r24
+ 472:	60 e4       	ldi	r22, 0x40	; 64
+ 474:	80 e2       	ldi	r24, 0x20	; 32
+ 476:	90 e0       	ldi	r25, 0x00	; 0
+ 478:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 47c:	61 e0       	ldi	r22, 0x01	; 1
+ 47e:	83 e2       	ldi	r24, 0x23	; 35
+ 480:	90 e0       	ldi	r25, 0x00	; 0
+ 482:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 486:	60 eb       	ldi	r22, 0xB0	; 176
+ 488:	ce 01       	movw	r24, r28
+ 48a:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 48e:	61 e0       	ldi	r22, 0x01	; 1
+ 490:	83 e2       	ldi	r24, 0x23	; 35
+ 492:	90 e0       	ldi	r25, 0x00	; 0
+ 494:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 498:	61 e0       	ldi	r22, 0x01	; 1
+ 49a:	83 e2       	ldi	r24, 0x23	; 35
+ 49c:	90 e0       	ldi	r25, 0x00	; 0
+ 49e:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 4a2:	60 e0       	ldi	r22, 0x00	; 0
+ 4a4:	ce 01       	movw	r24, r28
+ 4a6:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 4aa:	61 e0       	ldi	r22, 0x01	; 1
+ 4ac:	83 e2       	ldi	r24, 0x23	; 35
+ 4ae:	90 e0       	ldi	r25, 0x00	; 0
+ 4b0:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 4b4:	61 e0       	ldi	r22, 0x01	; 1
+ 4b6:	83 e2       	ldi	r24, 0x23	; 35
+ 4b8:	90 e0       	ldi	r25, 0x00	; 0
+ 4ba:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 4be:	60 e1       	ldi	r22, 0x10	; 16
+ 4c0:	ce 01       	movw	r24, r28
+ 4c2:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 4c6:	61 e0       	ldi	r22, 0x01	; 1
+ 4c8:	83 e2       	ldi	r24, 0x23	; 35
+ 4ca:	90 e0       	ldi	r25, 0x00	; 0
+ 4cc:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 4d0:	df 91       	pop	r29
+ 4d2:	cf 91       	pop	r28
+ 4d4:	08 95       	ret
+
+000004d6 <OLED_Set_Line_1>:
+ 4d6:	cf 93       	push	r28
+ 4d8:	df 93       	push	r29
+ 4da:	ec 01       	movw	r28, r24
+ 4dc:	60 e4       	ldi	r22, 0x40	; 64
+ 4de:	80 e2       	ldi	r24, 0x20	; 32
+ 4e0:	90 e0       	ldi	r25, 0x00	; 0
+ 4e2:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 4e6:	61 e0       	ldi	r22, 0x01	; 1
+ 4e8:	83 e2       	ldi	r24, 0x23	; 35
+ 4ea:	90 e0       	ldi	r25, 0x00	; 0
+ 4ec:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 4f0:	61 eb       	ldi	r22, 0xB1	; 177
+ 4f2:	ce 01       	movw	r24, r28
+ 4f4:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 4f8:	61 e0       	ldi	r22, 0x01	; 1
+ 4fa:	83 e2       	ldi	r24, 0x23	; 35
+ 4fc:	90 e0       	ldi	r25, 0x00	; 0
+ 4fe:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 502:	61 e0       	ldi	r22, 0x01	; 1
+ 504:	83 e2       	ldi	r24, 0x23	; 35
+ 506:	90 e0       	ldi	r25, 0x00	; 0
+ 508:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 50c:	60 e0       	ldi	r22, 0x00	; 0
+ 50e:	ce 01       	movw	r24, r28
+ 510:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 514:	61 e0       	ldi	r22, 0x01	; 1
+ 516:	83 e2       	ldi	r24, 0x23	; 35
+ 518:	90 e0       	ldi	r25, 0x00	; 0
+ 51a:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 51e:	61 e0       	ldi	r22, 0x01	; 1
+ 520:	83 e2       	ldi	r24, 0x23	; 35
+ 522:	90 e0       	ldi	r25, 0x00	; 0
+ 524:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 528:	60 e1       	ldi	r22, 0x10	; 16
+ 52a:	ce 01       	movw	r24, r28
+ 52c:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 530:	61 e0       	ldi	r22, 0x01	; 1
+ 532:	83 e2       	ldi	r24, 0x23	; 35
+ 534:	90 e0       	ldi	r25, 0x00	; 0
+ 536:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 53a:	df 91       	pop	r29
+ 53c:	cf 91       	pop	r28
+ 53e:	08 95       	ret
+
+00000540 <OLED_Set_Line_2>:
+ 540:	cf 93       	push	r28
+ 542:	df 93       	push	r29
+ 544:	ec 01       	movw	r28, r24
+ 546:	60 e4       	ldi	r22, 0x40	; 64
+ 548:	80 e2       	ldi	r24, 0x20	; 32
+ 54a:	90 e0       	ldi	r25, 0x00	; 0
+ 54c:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 550:	61 e0       	ldi	r22, 0x01	; 1
+ 552:	83 e2       	ldi	r24, 0x23	; 35
+ 554:	90 e0       	ldi	r25, 0x00	; 0
+ 556:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 55a:	62 eb       	ldi	r22, 0xB2	; 178
+ 55c:	ce 01       	movw	r24, r28
+ 55e:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 562:	61 e0       	ldi	r22, 0x01	; 1
+ 564:	83 e2       	ldi	r24, 0x23	; 35
+ 566:	90 e0       	ldi	r25, 0x00	; 0
+ 568:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 56c:	61 e0       	ldi	r22, 0x01	; 1
+ 56e:	83 e2       	ldi	r24, 0x23	; 35
+ 570:	90 e0       	ldi	r25, 0x00	; 0
+ 572:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 576:	60 e0       	ldi	r22, 0x00	; 0
+ 578:	ce 01       	movw	r24, r28
+ 57a:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 57e:	61 e0       	ldi	r22, 0x01	; 1
+ 580:	83 e2       	ldi	r24, 0x23	; 35
+ 582:	90 e0       	ldi	r25, 0x00	; 0
+ 584:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 588:	61 e0       	ldi	r22, 0x01	; 1
+ 58a:	83 e2       	ldi	r24, 0x23	; 35
+ 58c:	90 e0       	ldi	r25, 0x00	; 0
+ 58e:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 592:	60 e1       	ldi	r22, 0x10	; 16
+ 594:	ce 01       	movw	r24, r28
+ 596:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 59a:	61 e0       	ldi	r22, 0x01	; 1
+ 59c:	83 e2       	ldi	r24, 0x23	; 35
+ 59e:	90 e0       	ldi	r25, 0x00	; 0
+ 5a0:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 5a4:	df 91       	pop	r29
+ 5a6:	cf 91       	pop	r28
+ 5a8:	08 95       	ret
+
+000005aa <OLED_Set_Line_3>:
+ 5aa:	cf 93       	push	r28
+ 5ac:	df 93       	push	r29
+ 5ae:	ec 01       	movw	r28, r24
+ 5b0:	60 e4       	ldi	r22, 0x40	; 64
+ 5b2:	80 e2       	ldi	r24, 0x20	; 32
+ 5b4:	90 e0       	ldi	r25, 0x00	; 0
+ 5b6:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 5ba:	61 e0       	ldi	r22, 0x01	; 1
+ 5bc:	83 e2       	ldi	r24, 0x23	; 35
+ 5be:	90 e0       	ldi	r25, 0x00	; 0
+ 5c0:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 5c4:	63 eb       	ldi	r22, 0xB3	; 179
+ 5c6:	ce 01       	movw	r24, r28
+ 5c8:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 5cc:	61 e0       	ldi	r22, 0x01	; 1
+ 5ce:	83 e2       	ldi	r24, 0x23	; 35
+ 5d0:	90 e0       	ldi	r25, 0x00	; 0
+ 5d2:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 5d6:	61 e0       	ldi	r22, 0x01	; 1
+ 5d8:	83 e2       	ldi	r24, 0x23	; 35
+ 5da:	90 e0       	ldi	r25, 0x00	; 0
+ 5dc:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 5e0:	60 e0       	ldi	r22, 0x00	; 0
+ 5e2:	ce 01       	movw	r24, r28
+ 5e4:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 5e8:	61 e0       	ldi	r22, 0x01	; 1
+ 5ea:	83 e2       	ldi	r24, 0x23	; 35
+ 5ec:	90 e0       	ldi	r25, 0x00	; 0
+ 5ee:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 5f2:	61 e0       	ldi	r22, 0x01	; 1
+ 5f4:	83 e2       	ldi	r24, 0x23	; 35
+ 5f6:	90 e0       	ldi	r25, 0x00	; 0
+ 5f8:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 5fc:	60 e1       	ldi	r22, 0x10	; 16
+ 5fe:	ce 01       	movw	r24, r28
+ 600:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 604:	61 e0       	ldi	r22, 0x01	; 1
+ 606:	83 e2       	ldi	r24, 0x23	; 35
+ 608:	90 e0       	ldi	r25, 0x00	; 0
+ 60a:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 60e:	df 91       	pop	r29
+ 610:	cf 91       	pop	r28
+ 612:	08 95       	ret
+
+00000614 <OLED_Send_Char>:
+ 614:	ff 92       	push	r15
+ 616:	0f 93       	push	r16
+ 618:	1f 93       	push	r17
+ 61a:	cf 93       	push	r28
+ 61c:	df 93       	push	r29
+ 61e:	8c 01       	movw	r16, r24
+ 620:	f6 2e       	mov	r15, r22
+ 622:	60 e4       	ldi	r22, 0x40	; 64
+ 624:	80 e2       	ldi	r24, 0x20	; 32
+ 626:	90 e0       	ldi	r25, 0x00	; 0
+ 628:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 62c:	d0 e0       	ldi	r29, 0x00	; 0
+ 62e:	1d c0       	rjmp	.+58     	; 0x66a <OLED_Send_Char+0x56>
+ 630:	8f 2d       	mov	r24, r15
+ 632:	90 e0       	ldi	r25, 0x00	; 0
+ 634:	fc 01       	movw	r30, r24
+ 636:	ee 0f       	add	r30, r30
+ 638:	ff 1f       	adc	r31, r31
+ 63a:	ee 0f       	add	r30, r30
+ 63c:	ff 1f       	adc	r31, r31
+ 63e:	e8 0f       	add	r30, r24
+ 640:	f9 1f       	adc	r31, r25
+ 642:	ed 0f       	add	r30, r29
+ 644:	f1 1d       	adc	r31, r1
+ 646:	ed 50       	subi	r30, 0x0D	; 13
+ 648:	ff 4f       	sbci	r31, 0xFF	; 255
+ 64a:	c4 91       	lpm	r28, Z
+ 64c:	61 e0       	ldi	r22, 0x01	; 1
+ 64e:	83 e2       	ldi	r24, 0x23	; 35
+ 650:	90 e0       	ldi	r25, 0x00	; 0
+ 652:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 656:	6c 2f       	mov	r22, r28
+ 658:	c8 01       	movw	r24, r16
+ 65a:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 65e:	61 e0       	ldi	r22, 0x01	; 1
+ 660:	83 e2       	ldi	r24, 0x23	; 35
+ 662:	90 e0       	ldi	r25, 0x00	; 0
+ 664:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 668:	df 5f       	subi	r29, 0xFF	; 255
+ 66a:	d5 30       	cpi	r29, 0x05	; 5
+ 66c:	08 f3       	brcs	.-62     	; 0x630 <OLED_Send_Char+0x1c>
+ 66e:	61 e0       	ldi	r22, 0x01	; 1
+ 670:	83 e2       	ldi	r24, 0x23	; 35
+ 672:	90 e0       	ldi	r25, 0x00	; 0
+ 674:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 678:	60 e0       	ldi	r22, 0x00	; 0
+ 67a:	c8 01       	movw	r24, r16
+ 67c:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+ 680:	61 e0       	ldi	r22, 0x01	; 1
+ 682:	83 e2       	ldi	r24, 0x23	; 35
+ 684:	90 e0       	ldi	r25, 0x00	; 0
+ 686:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+ 68a:	df 91       	pop	r29
+ 68c:	cf 91       	pop	r28
+ 68e:	1f 91       	pop	r17
+ 690:	0f 91       	pop	r16
+ 692:	ff 90       	pop	r15
+ 694:	08 95       	ret
+
+00000696 <OLED_Clear_Display>:
+
+/**********************************************************************************
+*         Clears all four lines of the display.
+***********************************************************************************/
+void OLED_Clear_Display(volatile SPI_t *OLED_port)
+{
+ 696:	1f 93       	push	r17
+ 698:	cf 93       	push	r28
+ 69a:	df 93       	push	r29
+ 69c:	ec 01       	movw	r28, r24
+    uint8_t index;
+	OLED_Set_Line_0 (OLED_port);  
+ 69e:	0e 94 36 02 	call	0x46c	; 0x46c <OLED_Set_Line_0>
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Control(1);  // Write data// Write data
+ 6a2:	60 e4       	ldi	r22, 0x40	; 64
+ 6a4:	80 e2       	ldi	r24, 0x20	; 32
+ 6a6:	90 e0       	ldi	r25, 0x00	; 0
+ 6a8:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	for(index=0;index<128;index++)
+ 6ac:	10 e0       	ldi	r17, 0x00	; 0
+ 6ae:	0f c0       	rjmp	.+30     	; 0x6ce <OLED_Clear_Display+0x38>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+ 6b0:	61 e0       	ldi	r22, 0x01	; 1
+ 6b2:	83 e2       	ldi	r24, 0x23	; 35
+ 6b4:	90 e0       	ldi	r25, 0x00	; 0
+ 6b6:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+		SPI_Transmit(OLED_port, 0x00);
+ 6ba:	60 e0       	ldi	r22, 0x00	; 0
+ 6bc:	ce 01       	movw	r24, r28
+ 6be:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+ 6c2:	61 e0       	ldi	r22, 0x01	; 1
+ 6c4:	83 e2       	ldi	r24, 0x23	; 35
+ 6c6:	90 e0       	ldi	r25, 0x00	; 0
+ 6c8:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+void OLED_Clear_Display(volatile SPI_t *OLED_port)
+{
+    uint8_t index;
+	OLED_Set_Line_0 (OLED_port);  
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Control(1);  // Write data// Write data
+	for(index=0;index<128;index++)
+ 6cc:	1f 5f       	subi	r17, 0xFF	; 255
+ 6ce:	11 23       	and	r17, r17
+ 6d0:	7c f7       	brge	.-34     	; 0x6b0 <OLED_Clear_Display+0x1a>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+		SPI_Transmit(OLED_port, 0x00);
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+	}
+	OLED_Set_Line_1 (OLED_port);
+ 6d2:	ce 01       	movw	r24, r28
+ 6d4:	0e 94 6b 02 	call	0x4d6	; 0x4d6 <OLED_Set_Line_1>
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Control(1);  // Write data
+ 6d8:	60 e4       	ldi	r22, 0x40	; 64
+ 6da:	80 e2       	ldi	r24, 0x20	; 32
+ 6dc:	90 e0       	ldi	r25, 0x00	; 0
+ 6de:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	for(index=0;index<128;index++)
+ 6e2:	10 e0       	ldi	r17, 0x00	; 0
+ 6e4:	0f c0       	rjmp	.+30     	; 0x704 <OLED_Clear_Display+0x6e>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+ 6e6:	61 e0       	ldi	r22, 0x01	; 1
+ 6e8:	83 e2       	ldi	r24, 0x23	; 35
+ 6ea:	90 e0       	ldi	r25, 0x00	; 0
+ 6ec:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+		SPI_Transmit(OLED_port, 0x00);
+ 6f0:	60 e0       	ldi	r22, 0x00	; 0
+ 6f2:	ce 01       	movw	r24, r28
+ 6f4:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+ 6f8:	61 e0       	ldi	r22, 0x01	; 1
+ 6fa:	83 e2       	ldi	r24, 0x23	; 35
+ 6fc:	90 e0       	ldi	r25, 0x00	; 0
+ 6fe:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+		SPI_Transmit(OLED_port, 0x00);
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+	}
+	OLED_Set_Line_1 (OLED_port);
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Control(1);  // Write data
+	for(index=0;index<128;index++)
+ 702:	1f 5f       	subi	r17, 0xFF	; 255
+ 704:	11 23       	and	r17, r17
+ 706:	7c f7       	brge	.-34     	; 0x6e6 <OLED_Clear_Display+0x50>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+		SPI_Transmit(OLED_port, 0x00);
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+	}
+	OLED_Set_Line_2 (OLED_port);
+ 708:	ce 01       	movw	r24, r28
+ 70a:	0e 94 a0 02 	call	0x540	; 0x540 <OLED_Set_Line_2>
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Control(1);  // Write data
+ 70e:	60 e4       	ldi	r22, 0x40	; 64
+ 710:	80 e2       	ldi	r24, 0x20	; 32
+ 712:	90 e0       	ldi	r25, 0x00	; 0
+ 714:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	for(index=0;index<128;index++)
+ 718:	10 e0       	ldi	r17, 0x00	; 0
+ 71a:	0f c0       	rjmp	.+30     	; 0x73a <OLED_Clear_Display+0xa4>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+ 71c:	61 e0       	ldi	r22, 0x01	; 1
+ 71e:	83 e2       	ldi	r24, 0x23	; 35
+ 720:	90 e0       	ldi	r25, 0x00	; 0
+ 722:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+		SPI_Transmit(OLED_port, 0x00);
+ 726:	60 e0       	ldi	r22, 0x00	; 0
+ 728:	ce 01       	movw	r24, r28
+ 72a:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+ 72e:	61 e0       	ldi	r22, 0x01	; 1
+ 730:	83 e2       	ldi	r24, 0x23	; 35
+ 732:	90 e0       	ldi	r25, 0x00	; 0
+ 734:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+		SPI_Transmit(OLED_port, 0x00);
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+	}
+	OLED_Set_Line_2 (OLED_port);
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Control(1);  // Write data
+	for(index=0;index<128;index++)
+ 738:	1f 5f       	subi	r17, 0xFF	; 255
+ 73a:	11 23       	and	r17, r17
+ 73c:	7c f7       	brge	.-34     	; 0x71c <OLED_Clear_Display+0x86>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+		SPI_Transmit(OLED_port, 0x00);
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+	}
+	OLED_Set_Line_3 (OLED_port);
+ 73e:	ce 01       	movw	r24, r28
+ 740:	0e 94 d5 02 	call	0x5aa	; 0x5aa <OLED_Set_Line_3>
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Control(1);  // Write data
+ 744:	60 e4       	ldi	r22, 0x40	; 64
+ 746:	80 e2       	ldi	r24, 0x20	; 32
+ 748:	90 e0       	ldi	r25, 0x00	; 0
+ 74a:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	for(index=0;index<128;index++)
+ 74e:	10 e0       	ldi	r17, 0x00	; 0
+ 750:	0f c0       	rjmp	.+30     	; 0x770 <OLED_Clear_Display+0xda>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+ 752:	61 e0       	ldi	r22, 0x01	; 1
+ 754:	83 e2       	ldi	r24, 0x23	; 35
+ 756:	90 e0       	ldi	r25, 0x00	; 0
+ 758:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+		SPI_Transmit(OLED_port, 0x00);
+ 75c:	60 e0       	ldi	r22, 0x00	; 0
+ 75e:	ce 01       	movw	r24, r28
+ 760:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+ 764:	61 e0       	ldi	r22, 0x01	; 1
+ 766:	83 e2       	ldi	r24, 0x23	; 35
+ 768:	90 e0       	ldi	r25, 0x00	; 0
+ 76a:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+		SPI_Transmit(OLED_port, 0x00);
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+	}
+	OLED_Set_Line_3 (OLED_port);
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Control(1);  // Write data
+	for(index=0;index<128;index++)
+ 76e:	1f 5f       	subi	r17, 0xFF	; 255
+ 770:	11 23       	and	r17, r17
+ 772:	7c f7       	brge	.-34     	; 0x752 <OLED_Clear_Display+0xbc>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+		SPI_Transmit(OLED_port, 0x00);
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+	}
+}
+ 774:	df 91       	pop	r29
+ 776:	cf 91       	pop	r28
+ 778:	1f 91       	pop	r17
+ 77a:	08 95       	ret
+
+0000077c <OLED_Init>:
+extern const uint8_t OLED_ASCII[127][5];
+									
+									
+
+void OLED_Init(volatile SPI_t *OLED_port)
+{
+ 77c:	ef 92       	push	r14
+ 77e:	ff 92       	push	r15
+ 780:	0f 93       	push	r16
+ 782:	1f 93       	push	r17
+ 784:	cf 93       	push	r28
+ 786:	7c 01       	movw	r14, r24
+	uint16_t index;
+	//uint8_t * commands_p;
+	uint8_t command,temp8;
+	GPIO_Output_Set(OLED_Reset_Port,OLED_Reset_Pin);
+ 788:	60 e8       	ldi	r22, 0x80	; 128
+ 78a:	89 e2       	ldi	r24, 0x29	; 41
+ 78c:	90 e0       	ldi	r25, 0x00	; 0
+ 78e:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	GPIO_Output_Init(OLED_Reset_Port,OLED_Reset_Pin); //OLED_Reset_Init();
+ 792:	60 e8       	ldi	r22, 0x80	; 128
+ 794:	89 e2       	ldi	r24, 0x29	; 41
+ 796:	90 e0       	ldi	r25, 0x00	; 0
+ 798:	0e 94 cb 01 	call	0x396	; 0x396 <GPIO_Output_Init>
+	GPIO_Output_Set(OLED_CMD_Port,OLED_CMD_Pin);
+ 79c:	60 e4       	ldi	r22, 0x40	; 64
+ 79e:	80 e2       	ldi	r24, 0x20	; 32
+ 7a0:	90 e0       	ldi	r25, 0x00	; 0
+ 7a2:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	GPIO_Output_Init(OLED_CMD_Port,OLED_CMD_Pin); //OLED_CMD_Init();
+ 7a6:	60 e4       	ldi	r22, 0x40	; 64
+ 7a8:	80 e2       	ldi	r24, 0x20	; 32
+ 7aa:	90 e0       	ldi	r25, 0x00	; 0
+ 7ac:	0e 94 cb 01 	call	0x396	; 0x396 <GPIO_Output_Init>
+	GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin);
+ 7b0:	61 e0       	ldi	r22, 0x01	; 1
+ 7b2:	83 e2       	ldi	r24, 0x23	; 35
+ 7b4:	90 e0       	ldi	r25, 0x00	; 0
+ 7b6:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	GPIO_Output_Init(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Init();
+ 7ba:	61 e0       	ldi	r22, 0x01	; 1
+ 7bc:	83 e2       	ldi	r24, 0x23	; 35
+ 7be:	90 e0       	ldi	r25, 0x00	; 0
+ 7c0:	0e 94 cb 01 	call	0x396	; 0x396 <GPIO_Output_Init>
+	// Reset
+	GPIO_Output_Clear(OLED_Reset_Port,OLED_Reset_Pin); //OLED_Reset_Control(0);
+ 7c4:	60 e8       	ldi	r22, 0x80	; 128
+ 7c6:	89 e2       	ldi	r24, 0x29	; 41
+ 7c8:	90 e0       	ldi	r25, 0x00	; 0
+ 7ca:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+	for(index=0;index<500;index++);
+ 7ce:	80 e0       	ldi	r24, 0x00	; 0
+ 7d0:	90 e0       	ldi	r25, 0x00	; 0
+ 7d2:	01 c0       	rjmp	.+2      	; 0x7d6 <OLED_Init+0x5a>
+ 7d4:	01 96       	adiw	r24, 0x01	; 1
+ 7d6:	84 3f       	cpi	r24, 0xF4	; 244
+ 7d8:	21 e0       	ldi	r18, 0x01	; 1
+ 7da:	92 07       	cpc	r25, r18
+ 7dc:	d8 f3       	brcs	.-10     	; 0x7d4 <OLED_Init+0x58>
+	GPIO_Output_Set(OLED_Reset_Port,OLED_Reset_Pin); //OLED_Reset_Control(1);
+ 7de:	60 e8       	ldi	r22, 0x80	; 128
+ 7e0:	89 e2       	ldi	r24, 0x29	; 41
+ 7e2:	90 e0       	ldi	r25, 0x00	; 0
+ 7e4:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	// loop to send initialization commands
+	GPIO_Output_Clear(OLED_CMD_Port,OLED_CMD_Pin);// OLED_CMD_Control(0);  // All SPI values send will be commands
+ 7e8:	60 e4       	ldi	r22, 0x40	; 64
+ 7ea:	80 e2       	ldi	r24, 0x20	; 32
+ 7ec:	90 e0       	ldi	r25, 0x00	; 0
+ 7ee:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+	//commands_p=OLED_Init_Commands;
+	index=0;
+	command=pgm_read_byte(&OLED_Init_Commands[index]);//*commands_p;
+ 7f2:	eb ed       	ldi	r30, 0xDB	; 219
+ 7f4:	f0 e0       	ldi	r31, 0x00	; 0
+ 7f6:	c4 91       	lpm	r28, Z
+	for(index=0;index<500;index++);
+	GPIO_Output_Set(OLED_Reset_Port,OLED_Reset_Pin); //OLED_Reset_Control(1);
+	// loop to send initialization commands
+	GPIO_Output_Clear(OLED_CMD_Port,OLED_CMD_Pin);// OLED_CMD_Control(0);  // All SPI values send will be commands
+	//commands_p=OLED_Init_Commands;
+	index=0;
+ 7f8:	00 e0       	ldi	r16, 0x00	; 0
+ 7fa:	10 e0       	ldi	r17, 0x00	; 0
+	command=pgm_read_byte(&OLED_Init_Commands[index]);//*commands_p;
+	
+	while(command!=0xFF)
+ 7fc:	14 c0       	rjmp	.+40     	; 0x826 <__DATA_REGION_LENGTH__+0x26>
+	{
+		GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+ 7fe:	61 e0       	ldi	r22, 0x01	; 1
+ 800:	83 e2       	ldi	r24, 0x23	; 35
+ 802:	90 e0       	ldi	r25, 0x00	; 0
+ 804:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+		temp8=SPI_Transmit(OLED_port, command);
+ 808:	6c 2f       	mov	r22, r28
+ 80a:	c7 01       	movw	r24, r14
+ 80c:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+ 810:	61 e0       	ldi	r22, 0x01	; 1
+ 812:	83 e2       	ldi	r24, 0x23	; 35
+ 814:	90 e0       	ldi	r25, 0x00	; 0
+ 816:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+		index++;
+ 81a:	0f 5f       	subi	r16, 0xFF	; 255
+ 81c:	1f 4f       	sbci	r17, 0xFF	; 255
+		command=pgm_read_byte(&OLED_Init_Commands[index]);//*(commands_p+index);
+ 81e:	f8 01       	movw	r30, r16
+ 820:	e5 52       	subi	r30, 0x25	; 37
+ 822:	ff 4f       	sbci	r31, 0xFF	; 255
+ 824:	c4 91       	lpm	r28, Z
+	GPIO_Output_Clear(OLED_CMD_Port,OLED_CMD_Pin);// OLED_CMD_Control(0);  // All SPI values send will be commands
+	//commands_p=OLED_Init_Commands;
+	index=0;
+	command=pgm_read_byte(&OLED_Init_Commands[index]);//*commands_p;
+	
+	while(command!=0xFF)
+ 826:	cf 3f       	cpi	r28, 0xFF	; 255
+ 828:	51 f7       	brne	.-44     	; 0x7fe <OLED_Init+0x82>
+		GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+		index++;
+		command=pgm_read_byte(&OLED_Init_Commands[index]);//*(commands_p+index);
+	}
+	// Clear Display by filling each line (page) with all 0x00's
+	GPIO_Output_Clear(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(0);
+ 82a:	61 e0       	ldi	r22, 0x01	; 1
+ 82c:	83 e2       	ldi	r24, 0x23	; 35
+ 82e:	90 e0       	ldi	r25, 0x00	; 0
+ 830:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+	temp8=SPI_Transmit(OLED_port, 0x40);            //Set cursor to home
+ 834:	60 e4       	ldi	r22, 0x40	; 64
+ 836:	c7 01       	movw	r24, r14
+ 838:	0e 94 ce 04 	call	0x99c	; 0x99c <SPI_Transmit>
+	GPIO_Output_Set(OLED_SS_Port,OLED_SS_Pin); //OLED_SS_Control(1);
+ 83c:	61 e0       	ldi	r22, 0x01	; 1
+ 83e:	83 e2       	ldi	r24, 0x23	; 35
+ 840:	90 e0       	ldi	r25, 0x00	; 0
+ 842:	0e 94 d0 01 	call	0x3a0	; 0x3a0 <GPIO_Output_Set>
+	OLED_Clear_Display(OLED_port);
+ 846:	c7 01       	movw	r24, r14
+ 848:	0e 94 4b 03 	call	0x696	; 0x696 <OLED_Clear_Display>
+	
+}
+ 84c:	cf 91       	pop	r28
+ 84e:	1f 91       	pop	r17
+ 850:	0f 91       	pop	r16
+ 852:	ff 90       	pop	r15
+ 854:	ef 90       	pop	r14
+ 856:	08 95       	ret
+
+00000858 <OLED_Transmit_String>:
+*           The SPI port for the OLED display must be specified as a volatile pointer.
+*           If the number of bytes to print is 0, then the string is printed until a NULL is found,
+*           otherwise the specified number of bytes is printed.
+***********************************************************************************************/ 
+void OLED_Transmit_String(volatile SPI_t *OLED_port, uint8_t num_bytes,char * string_name)
+{
+ 858:	ef 92       	push	r14
+ 85a:	ff 92       	push	r15
+ 85c:	0f 93       	push	r16
+ 85e:	1f 93       	push	r17
+ 860:	cf 93       	push	r28
+ 862:	df 93       	push	r29
+ 864:	7c 01       	movw	r14, r24
+ 866:	06 2f       	mov	r16, r22
+ 868:	ea 01       	movw	r28, r20
+	int8_t temp8,index;
+	if(num_bytes==0)
+ 86a:	61 11       	cpse	r22, r1
+ 86c:	15 c0       	rjmp	.+42     	; 0x898 <OLED_Transmit_String+0x40>
+	{
+		temp8=*string_name;
+ 86e:	68 81       	ld	r22, Y
+		while (temp8!=0)
+ 870:	05 c0       	rjmp	.+10     	; 0x87c <OLED_Transmit_String+0x24>
+		{
+			OLED_Send_Char(OLED_port, temp8);
+ 872:	c7 01       	movw	r24, r14
+ 874:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_Send_Char>
+			string_name++;
+ 878:	21 96       	adiw	r28, 0x01	; 1
+			temp8=*string_name;
+ 87a:	68 81       	ld	r22, Y
+{
+	int8_t temp8,index;
+	if(num_bytes==0)
+	{
+		temp8=*string_name;
+		while (temp8!=0)
+ 87c:	61 11       	cpse	r22, r1
+ 87e:	f9 cf       	rjmp	.-14     	; 0x872 <OLED_Transmit_String+0x1a>
+ 880:	15 c0       	rjmp	.+42     	; 0x8ac <OLED_Transmit_String+0x54>
+	}
+	else
+	{
+		for(index=0;index<num_bytes;index++)
+		{
+			OLED_Send_Char(OLED_port, string_name[index]);
+ 882:	fe 01       	movw	r30, r28
+ 884:	e1 0f       	add	r30, r17
+ 886:	f1 1d       	adc	r31, r1
+ 888:	17 fd       	sbrc	r17, 7
+ 88a:	fa 95       	dec	r31
+ 88c:	60 81       	ld	r22, Z
+ 88e:	c7 01       	movw	r24, r14
+ 890:	0e 94 0a 03 	call	0x614	; 0x614 <OLED_Send_Char>
+			temp8=*string_name;
+		}
+	}
+	else
+	{
+		for(index=0;index<num_bytes;index++)
+ 894:	1f 5f       	subi	r17, 0xFF	; 255
+ 896:	01 c0       	rjmp	.+2      	; 0x89a <OLED_Transmit_String+0x42>
+ 898:	10 e0       	ldi	r17, 0x00	; 0
+ 89a:	20 2f       	mov	r18, r16
+ 89c:	30 e0       	ldi	r19, 0x00	; 0
+ 89e:	81 2f       	mov	r24, r17
+ 8a0:	01 2e       	mov	r0, r17
+ 8a2:	00 0c       	add	r0, r0
+ 8a4:	99 0b       	sbc	r25, r25
+ 8a6:	82 17       	cp	r24, r18
+ 8a8:	93 07       	cpc	r25, r19
+ 8aa:	5c f3       	brlt	.-42     	; 0x882 <OLED_Transmit_String+0x2a>
+		{
+			OLED_Send_Char(OLED_port, string_name[index]);
+		}
+	}
+}
+ 8ac:	df 91       	pop	r29
+ 8ae:	cf 91       	pop	r28
+ 8b0:	1f 91       	pop	r17
+ 8b2:	0f 91       	pop	r16
+ 8b4:	ff 90       	pop	r15
+ 8b6:	ef 90       	pop	r14
+ 8b8:	08 95       	ret
+
+000008ba <SPI_Master_Init>:
+CAUTION: Sets the CPHA to 0 and CPOL to 0
+         Disables SS and sets master mode 
+************************************************************************/
+
+uint8_t SPI_Master_Init(volatile SPI_t *SPI_addr, uint32_t clock_rate)
+{
+ 8ba:	1f 93       	push	r17
+ 8bc:	cf 93       	push	r28
+ 8be:	df 93       	push	r29
+ 8c0:	ec 01       	movw	r28, r24
+ 8c2:	9a 01       	movw	r18, r20
+ 8c4:	ab 01       	movw	r20, r22
+  uint8_t divider,return_val;
+  
+  return_val=no_errors;
+  divider=(uint8_t)((F_CPU/OSC_DIV)/clock_rate);
+ 8c6:	60 e0       	ldi	r22, 0x00	; 0
+ 8c8:	74 e2       	ldi	r23, 0x24	; 36
+ 8ca:	84 ef       	ldi	r24, 0xF4	; 244
+ 8cc:	90 e0       	ldi	r25, 0x00	; 0
+ 8ce:	0e 94 6c 05 	call	0xad8	; 0xad8 <__udivmodsi4>
+  if(divider<2)
+ 8d2:	22 30       	cpi	r18, 0x02	; 2
+ 8d4:	30 f4       	brcc	.+12     	; 0x8e2 <SPI_Master_Init+0x28>
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_4));
+ 8d6:	80 e5       	ldi	r24, 0x50	; 80
+ 8d8:	88 83       	st	Y, r24
+	 (SPI_addr->SPSR)=FOSCx2;
+ 8da:	81 e0       	ldi	r24, 0x01	; 1
+ 8dc:	89 83       	std	Y+1, r24	; 0x01
+
+uint8_t SPI_Master_Init(volatile SPI_t *SPI_addr, uint32_t clock_rate)
+{
+  uint8_t divider,return_val;
+  
+  return_val=no_errors;
+ 8de:	10 e0       	ldi	r17, 0x00	; 0
+ 8e0:	36 c0       	rjmp	.+108    	; 0x94e <__stack+0x4f>
+  if(divider<2)
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_4));
+	 (SPI_addr->SPSR)=FOSCx2;
+  }
+  else if((divider>2)&&(divider<4))
+ 8e2:	23 30       	cpi	r18, 0x03	; 3
+ 8e4:	29 f4       	brne	.+10     	; 0x8f0 <SPI_Master_Init+0x36>
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(Master_Mode)|(FOSC_4));
+ 8e6:	80 e5       	ldi	r24, 0x50	; 80
+ 8e8:	88 83       	st	Y, r24
+	 (SPI_addr->SPSR)=FOSCx1;
+ 8ea:	19 82       	std	Y+1, r1	; 0x01
+
+uint8_t SPI_Master_Init(volatile SPI_t *SPI_addr, uint32_t clock_rate)
+{
+  uint8_t divider,return_val;
+  
+  return_val=no_errors;
+ 8ec:	10 e0       	ldi	r17, 0x00	; 0
+ 8ee:	2f c0       	rjmp	.+94     	; 0x94e <__stack+0x4f>
+  else if((divider>2)&&(divider<4))
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(Master_Mode)|(FOSC_4));
+	 (SPI_addr->SPSR)=FOSCx1;
+  }
+  else if((divider>4)&&(divider<8))
+ 8f0:	8b ef       	ldi	r24, 0xFB	; 251
+ 8f2:	82 0f       	add	r24, r18
+ 8f4:	83 30       	cpi	r24, 0x03	; 3
+ 8f6:	30 f4       	brcc	.+12     	; 0x904 <__stack+0x5>
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_16));
+ 8f8:	81 e5       	ldi	r24, 0x51	; 81
+ 8fa:	88 83       	st	Y, r24
+	 (SPI_addr->SPSR)=FOSCx2;
+ 8fc:	81 e0       	ldi	r24, 0x01	; 1
+ 8fe:	89 83       	std	Y+1, r24	; 0x01
+
+uint8_t SPI_Master_Init(volatile SPI_t *SPI_addr, uint32_t clock_rate)
+{
+  uint8_t divider,return_val;
+  
+  return_val=no_errors;
+ 900:	10 e0       	ldi	r17, 0x00	; 0
+ 902:	25 c0       	rjmp	.+74     	; 0x94e <__stack+0x4f>
+  else if((divider>4)&&(divider<8))
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_16));
+	 (SPI_addr->SPSR)=FOSCx2;
+  }
+  else if((divider>8)&&(divider<16))
+ 904:	87 ef       	ldi	r24, 0xF7	; 247
+ 906:	82 0f       	add	r24, r18
+ 908:	87 30       	cpi	r24, 0x07	; 7
+ 90a:	28 f4       	brcc	.+10     	; 0x916 <__stack+0x17>
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_16));
+ 90c:	81 e5       	ldi	r24, 0x51	; 81
+ 90e:	88 83       	st	Y, r24
+	 (SPI_addr->SPSR)=FOSCx1;
+ 910:	19 82       	std	Y+1, r1	; 0x01
+
+uint8_t SPI_Master_Init(volatile SPI_t *SPI_addr, uint32_t clock_rate)
+{
+  uint8_t divider,return_val;
+  
+  return_val=no_errors;
+ 912:	10 e0       	ldi	r17, 0x00	; 0
+ 914:	1c c0       	rjmp	.+56     	; 0x94e <__stack+0x4f>
+  else if((divider>8)&&(divider<16))
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_16));
+	 (SPI_addr->SPSR)=FOSCx1;
+  } 
+  else if((divider>16)&&(divider<32))
+ 916:	8f ee       	ldi	r24, 0xEF	; 239
+ 918:	82 0f       	add	r24, r18
+ 91a:	8f 30       	cpi	r24, 0x0F	; 15
+ 91c:	30 f4       	brcc	.+12     	; 0x92a <__stack+0x2b>
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_64));
+ 91e:	82 e5       	ldi	r24, 0x52	; 82
+ 920:	88 83       	st	Y, r24
+	 (SPI_addr->SPSR)=FOSCx2;
+ 922:	81 e0       	ldi	r24, 0x01	; 1
+ 924:	89 83       	std	Y+1, r24	; 0x01
+
+uint8_t SPI_Master_Init(volatile SPI_t *SPI_addr, uint32_t clock_rate)
+{
+  uint8_t divider,return_val;
+  
+  return_val=no_errors;
+ 926:	10 e0       	ldi	r17, 0x00	; 0
+ 928:	12 c0       	rjmp	.+36     	; 0x94e <__stack+0x4f>
+  else if((divider>16)&&(divider<32))
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_64));
+	 (SPI_addr->SPSR)=FOSCx2;
+  }
+  else if((divider>32)&&(divider<64))
+ 92a:	8f ed       	ldi	r24, 0xDF	; 223
+ 92c:	82 0f       	add	r24, r18
+ 92e:	8f 31       	cpi	r24, 0x1F	; 31
+ 930:	28 f4       	brcc	.+10     	; 0x93c <__stack+0x3d>
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_64));
+ 932:	82 e5       	ldi	r24, 0x52	; 82
+ 934:	88 83       	st	Y, r24
+	 (SPI_addr->SPSR)=FOSCx1;
+ 936:	19 82       	std	Y+1, r1	; 0x01
+
+uint8_t SPI_Master_Init(volatile SPI_t *SPI_addr, uint32_t clock_rate)
+{
+  uint8_t divider,return_val;
+  
+  return_val=no_errors;
+ 938:	10 e0       	ldi	r17, 0x00	; 0
+ 93a:	09 c0       	rjmp	.+18     	; 0x94e <__stack+0x4f>
+  else if((divider>32)&&(divider<64))
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_64));
+	 (SPI_addr->SPSR)=FOSCx1;
+  }
+  else if((divider>64)&&(divider<128))
+ 93c:	21 54       	subi	r18, 0x41	; 65
+ 93e:	2f 33       	cpi	r18, 0x3F	; 63
+ 940:	28 f4       	brcc	.+10     	; 0x94c <__stack+0x4d>
+  {
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_128));
+ 942:	83 e5       	ldi	r24, 0x53	; 83
+ 944:	88 83       	st	Y, r24
+	 (SPI_addr->SPSR)=FOSCx1;
+ 946:	19 82       	std	Y+1, r1	; 0x01
+
+uint8_t SPI_Master_Init(volatile SPI_t *SPI_addr, uint32_t clock_rate)
+{
+  uint8_t divider,return_val;
+  
+  return_val=no_errors;
+ 948:	10 e0       	ldi	r17, 0x00	; 0
+ 94a:	01 c0       	rjmp	.+2      	; 0x94e <__stack+0x4f>
+	 (SPI_addr->SPCR)=((SPI_Enable)|(Master_Mode)|(CPOL_select<<CPOL)|(CPHA_select<<CPHA)|(FOSC_128));
+	 (SPI_addr->SPSR)=FOSCx1;
+  }
+  else  // if the SPI clock rate is too slow, a divider cannot be found
+  {
+    return_val=illegal_clockrate;
+ 94c:	1f e0       	ldi	r17, 0x0F	; 15
+  }
+  if(SPI_addr==SPI0)
+ 94e:	cc 34       	cpi	r28, 0x4C	; 76
+ 950:	d1 05       	cpc	r29, r1
+ 952:	59 f4       	brne	.+22     	; 0x96a <__stack+0x6b>
+  {
+	  // Set Port B pins for SPI
+	  GPIO_Output_Init(PB,((1<<7)|(1<<5)));  // Set MOSI and SCK as outputs
+ 954:	60 ea       	ldi	r22, 0xA0	; 160
+ 956:	83 e2       	ldi	r24, 0x23	; 35
+ 958:	90 e0       	ldi	r25, 0x00	; 0
+ 95a:	0e 94 cb 01 	call	0x396	; 0x396 <GPIO_Output_Init>
+	  if(CPOL_select==CPOL_0)
+	  {
+		  GPIO_Output_Clear(PB,(1<<7));
+ 95e:	60 e8       	ldi	r22, 0x80	; 128
+ 960:	83 e2       	ldi	r24, 0x23	; 35
+ 962:	90 e0       	ldi	r25, 0x00	; 0
+ 964:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 968:	14 c0       	rjmp	.+40     	; 0x992 <__stack+0x93>
+	  else
+	  {
+		  GPIO_Output_Set(PB,(1<<7));
+	  }
+  }
+  else if(SPI_addr==SPI1)
+ 96a:	cc 3a       	cpi	r28, 0xAC	; 172
+ 96c:	d1 05       	cpc	r29, r1
+ 96e:	81 f4       	brne	.+32     	; 0x990 <__stack+0x91>
+  {
+	  // Set
+	  GPIO_Output_Init(PD,(1<<7));  // Set MOSI and SCK as outputs
+ 970:	60 e8       	ldi	r22, 0x80	; 128
+ 972:	89 e2       	ldi	r24, 0x29	; 41
+ 974:	90 e0       	ldi	r25, 0x00	; 0
+ 976:	0e 94 cb 01 	call	0x396	; 0x396 <GPIO_Output_Init>
+	  GPIO_Output_Init(PE,(1<<3));
+ 97a:	68 e0       	ldi	r22, 0x08	; 8
+ 97c:	8c e2       	ldi	r24, 0x2C	; 44
+ 97e:	90 e0       	ldi	r25, 0x00	; 0
+ 980:	0e 94 cb 01 	call	0x396	; 0x396 <GPIO_Output_Init>
+	  if(CPOL_select==CPOL_0)
+	  {
+		  GPIO_Output_Clear(PD,(1<<7));
+ 984:	60 e8       	ldi	r22, 0x80	; 128
+ 986:	89 e2       	ldi	r24, 0x29	; 41
+ 988:	90 e0       	ldi	r25, 0x00	; 0
+ 98a:	0e 94 d5 01 	call	0x3aa	; 0x3aa <GPIO_Output_Clear>
+ 98e:	01 c0       	rjmp	.+2      	; 0x992 <__stack+0x93>
+		  GPIO_Output_Set(PD,(1<<7));
+	  }
+  }
+  else
+  {
+	  return_val=illegal_port;
+ 990:	1e e0       	ldi	r17, 0x0E	; 14
+  }
+  return return_val;
+}
+ 992:	81 2f       	mov	r24, r17
+ 994:	df 91       	pop	r29
+ 996:	cf 91       	pop	r28
+ 998:	1f 91       	pop	r17
+ 99a:	08 95       	ret
+
+0000099c <SPI_Transmit>:
+CAUTION: Waits for the SPI transfer to be complete
+************************************************************************/
+
+
+uint8_t SPI_Transmit(volatile SPI_t *SPI_addr, uint8_t data_input)
+{
+ 99c:	fc 01       	movw	r30, r24
+   uint8_t test, timeout;
+   timeout=0;
+   (SPI_addr->SPDR)=data_input;
+ 99e:	62 83       	std	Z+2, r22	; 0x02
+
+
+uint8_t SPI_Transmit(volatile SPI_t *SPI_addr, uint8_t data_input)
+{
+   uint8_t test, timeout;
+   timeout=0;
+ 9a0:	90 e0       	ldi	r25, 0x00	; 0
+   (SPI_addr->SPDR)=data_input;
+   do
+   {
+      test=(SPI_addr->SPSR);
+ 9a2:	21 81       	ldd	r18, Z+1	; 0x01
+	  timeout++;
+ 9a4:	9f 5f       	subi	r25, 0xFF	; 255
+   }while(((test&SPI_Flag)==0)&&(timeout!=0));
+ 9a6:	22 23       	and	r18, r18
+ 9a8:	14 f0       	brlt	.+4      	; 0x9ae <SPI_Transmit+0x12>
+ 9aa:	91 11       	cpse	r25, r1
+ 9ac:	fa cf       	rjmp	.-12     	; 0x9a2 <SPI_Transmit+0x6>
+   if(timeout!=0)
+ 9ae:	99 23       	and	r25, r25
+ 9b0:	21 f0       	breq	.+8      	; 0x9ba <SPI_Transmit+0x1e>
+   {
+     if((test&0x40)==0)  // no errors
+ 9b2:	26 fd       	sbrc	r18, 6
+ 9b4:	04 c0       	rjmp	.+8      	; 0x9be <SPI_Transmit+0x22>
+     {
+         timeout=no_errors;
+ 9b6:	80 e0       	ldi	r24, 0x00	; 0
+ 9b8:	08 95       	ret
+         timeout=SPI_Write_Collision;
+     }
+   }
+   else
+   {
+     timeout=SPI_TIMEOUT;
+ 9ba:	80 e8       	ldi	r24, 0x80	; 128
+ 9bc:	08 95       	ret
+     {
+         timeout=no_errors;
+     }
+     else
+     {
+         timeout=SPI_Write_Collision;
+ 9be:	80 ec       	ldi	r24, 0xC0	; 192
+   else
+   {
+     timeout=SPI_TIMEOUT;
+   }
+   return timeout;
+}
+ 9c0:	08 95       	ret
+
+000009c2 <UART_Init>:
+
+
+
+
+void UART_Init (volatile UART_t * UART_addr, uint16_t Baud_Rate)
+{
+ 9c2:	cf 93       	push	r28
+ 9c4:	df 93       	push	r29
+ 9c6:	ec 01       	movw	r28, r24
+	uint16_t Baud_Rate_Reload;
+	Baud_Rate_Reload = (uint16_t)(((F_CPU/OSC_DIV)/(8UL*(2-U2X_bit)*Baud_Rate))-1);
+ 9c8:	cb 01       	movw	r24, r22
+ 9ca:	a0 e0       	ldi	r26, 0x00	; 0
+ 9cc:	b0 e0       	ldi	r27, 0x00	; 0
+ 9ce:	88 0f       	add	r24, r24
+ 9d0:	99 1f       	adc	r25, r25
+ 9d2:	aa 1f       	adc	r26, r26
+ 9d4:	bb 1f       	adc	r27, r27
+ 9d6:	88 0f       	add	r24, r24
+ 9d8:	99 1f       	adc	r25, r25
+ 9da:	aa 1f       	adc	r26, r26
+ 9dc:	bb 1f       	adc	r27, r27
+ 9de:	9c 01       	movw	r18, r24
+ 9e0:	ad 01       	movw	r20, r26
+ 9e2:	22 0f       	add	r18, r18
+ 9e4:	33 1f       	adc	r19, r19
+ 9e6:	44 1f       	adc	r20, r20
+ 9e8:	55 1f       	adc	r21, r21
+ 9ea:	22 0f       	add	r18, r18
+ 9ec:	33 1f       	adc	r19, r19
+ 9ee:	44 1f       	adc	r20, r20
+ 9f0:	55 1f       	adc	r21, r21
+ 9f2:	60 e0       	ldi	r22, 0x00	; 0
+ 9f4:	74 e2       	ldi	r23, 0x24	; 36
+ 9f6:	84 ef       	ldi	r24, 0xF4	; 244
+ 9f8:	90 e0       	ldi	r25, 0x00	; 0
+ 9fa:	0e 94 6c 05 	call	0xad8	; 0xad8 <__udivmodsi4>
+ 9fe:	21 50       	subi	r18, 0x01	; 1
+ a00:	31 09       	sbc	r19, r1
+	
+	(UART_addr->UBBRH) = (Baud_Rate_Reload / 256);
+ a02:	3d 83       	std	Y+5, r19	; 0x05
+	(UART_addr->UBBRL) = (Baud_Rate_Reload % 256);
+ a04:	2c 83       	std	Y+4, r18	; 0x04
+		
+	(UART_addr->UCSRA) = U2X_bit<<U2X_shift;
+ a06:	18 82       	st	Y, r1
+	(UART_addr->UCSRC) = Asynchronous|No_Parity|One_Stop_Bit|Eight_Data_Bits;
+ a08:	86 e0       	ldi	r24, 0x06	; 6
+ a0a:	8a 83       	std	Y+2, r24	; 0x02
+	(UART_addr->UCSRB) = RX_enable|TX_enable;
+ a0c:	88 e1       	ldi	r24, 0x18	; 24
+ a0e:	89 83       	std	Y+1, r24	; 0x01
+}
+ a10:	df 91       	pop	r29
+ a12:	cf 91       	pop	r28
+ a14:	08 95       	ret
+
+00000a16 <UART_Transmit>:
+
+char UART_Transmit(volatile UART_t * UART_addr, char c)
+{
+ a16:	fc 01       	movw	r30, r24
+	uint8_t status;
+	do
+	{
+		status=(UART_addr->UCSRA);
+ a18:	90 81       	ld	r25, Z
+	} while ((status & (1 << UDRE))!=(1 << UDRE));
+ a1a:	95 ff       	sbrs	r25, 5
+ a1c:	fd cf       	rjmp	.-6      	; 0xa18 <UART_Transmit+0x2>
+	(UART_addr->UDR) = c;
+ a1e:	66 83       	std	Z+6, r22	; 0x06
+	return 0;
+}
+ a20:	80 e0       	ldi	r24, 0x00	; 0
+ a22:	08 95       	ret
+
+00000a24 <Export_print_buffer>:
+
+char * Export_print_buffer(void)
+{
+	
+	return print_buffer;
+}
+ a24:	80 e0       	ldi	r24, 0x00	; 0
+ a26:	91 e0       	ldi	r25, 0x01	; 1
+ a28:	08 95       	ret
+
+00000a2a <Copy_String_to_Buffer>:
+
+uint8_t Copy_String_to_Buffer(const char flash_string[], uint8_t num_bytes, char buffer_p[])
+{
+ a2a:	cf 93       	push	r28
+ a2c:	df 93       	push	r29
+ a2e:	dc 01       	movw	r26, r24
+	uint8_t index;
+	char value;
+	if(num_bytes==0)
+ a30:	61 11       	cpse	r22, r1
+ a32:	1a c0       	rjmp	.+52     	; 0xa68 <Copy_String_to_Buffer+0x3e>
+	{
+		index=0;
+		do
+		{
+			value=pgm_read_byte(&flash_string[index]);
+ a34:	26 2f       	mov	r18, r22
+ a36:	30 e0       	ldi	r19, 0x00	; 0
+ a38:	fd 01       	movw	r30, r26
+ a3a:	e2 0f       	add	r30, r18
+ a3c:	f3 1f       	adc	r31, r19
+ a3e:	e4 91       	lpm	r30, Z
+			buffer_p[index]=value;
+ a40:	ea 01       	movw	r28, r20
+ a42:	c2 0f       	add	r28, r18
+ a44:	d3 1f       	adc	r29, r19
+ a46:	e8 83       	st	Y, r30
+			index++;
+ a48:	6f 5f       	subi	r22, 0xFF	; 255
+		} while (value!=0);
+ a4a:	e1 11       	cpse	r30, r1
+ a4c:	f3 cf       	rjmp	.-26     	; 0xa34 <Copy_String_to_Buffer+0xa>
+ a4e:	0f c0       	rjmp	.+30     	; 0xa6e <Copy_String_to_Buffer+0x44>
+	}
+	else
+	{
+		for(index=0;index<num_bytes;index++)
+		{
+			value=pgm_read_byte(&flash_string[index]);
+ a50:	29 2f       	mov	r18, r25
+ a52:	30 e0       	ldi	r19, 0x00	; 0
+ a54:	fd 01       	movw	r30, r26
+ a56:	e2 0f       	add	r30, r18
+ a58:	f3 1f       	adc	r31, r19
+ a5a:	e4 91       	lpm	r30, Z
+			buffer_p[index]=value;
+ a5c:	ea 01       	movw	r28, r20
+ a5e:	c2 0f       	add	r28, r18
+ a60:	d3 1f       	adc	r29, r19
+ a62:	e8 83       	st	Y, r30
+			index++;
+		} while (value!=0);
+	}
+	else
+	{
+		for(index=0;index<num_bytes;index++)
+ a64:	9f 5f       	subi	r25, 0xFF	; 255
+ a66:	01 c0       	rjmp	.+2      	; 0xa6a <Copy_String_to_Buffer+0x40>
+ a68:	90 e0       	ldi	r25, 0x00	; 0
+ a6a:	96 17       	cp	r25, r22
+ a6c:	88 f3       	brcs	.-30     	; 0xa50 <Copy_String_to_Buffer+0x26>
+			buffer_p[index]=value;
+		}
+		index=num_bytes;
+	}
+	return index;
+}
+ a6e:	86 2f       	mov	r24, r22
+ a70:	df 91       	pop	r29
+ a72:	cf 91       	pop	r28
+ a74:	08 95       	ret
+
+00000a76 <UART_Transmit_String>:
+
+void UART_Transmit_String(volatile UART_t * UART_addr, uint8_t num_bytes, char * string_name)
+{
+ a76:	ef 92       	push	r14
+ a78:	ff 92       	push	r15
+ a7a:	0f 93       	push	r16
+ a7c:	1f 93       	push	r17
+ a7e:	cf 93       	push	r28
+ a80:	df 93       	push	r29
+ a82:	7c 01       	movw	r14, r24
+ a84:	06 2f       	mov	r16, r22
+ a86:	ea 01       	movw	r28, r20
+	char temp8;
+	int8_t index;
+	if(num_bytes==0)
+ a88:	61 11       	cpse	r22, r1
+ a8a:	15 c0       	rjmp	.+42     	; 0xab6 <UART_Transmit_String+0x40>
+	{
+		temp8=*string_name;
+ a8c:	68 81       	ld	r22, Y
+		while (temp8!=0)
+ a8e:	05 c0       	rjmp	.+10     	; 0xa9a <UART_Transmit_String+0x24>
+		{
+			UART_Transmit(UART_addr, temp8);
+ a90:	c7 01       	movw	r24, r14
+ a92:	0e 94 0b 05 	call	0xa16	; 0xa16 <UART_Transmit>
+			string_name++;
+ a96:	21 96       	adiw	r28, 0x01	; 1
+			temp8=*string_name;
+ a98:	68 81       	ld	r22, Y
+	char temp8;
+	int8_t index;
+	if(num_bytes==0)
+	{
+		temp8=*string_name;
+		while (temp8!=0)
+ a9a:	61 11       	cpse	r22, r1
+ a9c:	f9 cf       	rjmp	.-14     	; 0xa90 <UART_Transmit_String+0x1a>
+ a9e:	15 c0       	rjmp	.+42     	; 0xaca <UART_Transmit_String+0x54>
+	}
+	else
+	{
+		for(index=0;index<num_bytes;index++)
+		{
+			UART_Transmit(UART_addr, string_name[index]);
+ aa0:	fe 01       	movw	r30, r28
+ aa2:	e1 0f       	add	r30, r17
+ aa4:	f1 1d       	adc	r31, r1
+ aa6:	17 fd       	sbrc	r17, 7
+ aa8:	fa 95       	dec	r31
+ aaa:	60 81       	ld	r22, Z
+ aac:	c7 01       	movw	r24, r14
+ aae:	0e 94 0b 05 	call	0xa16	; 0xa16 <UART_Transmit>
+			temp8=*string_name;
+		}
+	}
+	else
+	{
+		for(index=0;index<num_bytes;index++)
+ ab2:	1f 5f       	subi	r17, 0xFF	; 255
+ ab4:	01 c0       	rjmp	.+2      	; 0xab8 <UART_Transmit_String+0x42>
+ ab6:	10 e0       	ldi	r17, 0x00	; 0
+ ab8:	20 2f       	mov	r18, r16
+ aba:	30 e0       	ldi	r19, 0x00	; 0
+ abc:	81 2f       	mov	r24, r17
+ abe:	01 2e       	mov	r0, r17
+ ac0:	00 0c       	add	r0, r0
+ ac2:	99 0b       	sbc	r25, r25
+ ac4:	82 17       	cp	r24, r18
+ ac6:	93 07       	cpc	r25, r19
+ ac8:	5c f3       	brlt	.-42     	; 0xaa0 <UART_Transmit_String+0x2a>
+		{
+			UART_Transmit(UART_addr, string_name[index]);
+		}
+	}
+}
+ aca:	df 91       	pop	r29
+ acc:	cf 91       	pop	r28
+ ace:	1f 91       	pop	r17
+ ad0:	0f 91       	pop	r16
+ ad2:	ff 90       	pop	r15
+ ad4:	ef 90       	pop	r14
+ ad6:	08 95       	ret
+
+00000ad8 <__udivmodsi4>:
+ ad8:	a1 e2       	ldi	r26, 0x21	; 33
+ ada:	1a 2e       	mov	r1, r26
+ adc:	aa 1b       	sub	r26, r26
+ ade:	bb 1b       	sub	r27, r27
+ ae0:	fd 01       	movw	r30, r26
+ ae2:	0d c0       	rjmp	.+26     	; 0xafe <__udivmodsi4_ep>
+
+00000ae4 <__udivmodsi4_loop>:
+ ae4:	aa 1f       	adc	r26, r26
+ ae6:	bb 1f       	adc	r27, r27
+ ae8:	ee 1f       	adc	r30, r30
+ aea:	ff 1f       	adc	r31, r31
+ aec:	a2 17       	cp	r26, r18
+ aee:	b3 07       	cpc	r27, r19
+ af0:	e4 07       	cpc	r30, r20
+ af2:	f5 07       	cpc	r31, r21
+ af4:	20 f0       	brcs	.+8      	; 0xafe <__udivmodsi4_ep>
+ af6:	a2 1b       	sub	r26, r18
+ af8:	b3 0b       	sbc	r27, r19
+ afa:	e4 0b       	sbc	r30, r20
+ afc:	f5 0b       	sbc	r31, r21
+
+00000afe <__udivmodsi4_ep>:
+ afe:	66 1f       	adc	r22, r22
+ b00:	77 1f       	adc	r23, r23
+ b02:	88 1f       	adc	r24, r24
+ b04:	99 1f       	adc	r25, r25
+ b06:	1a 94       	dec	r1
+ b08:	69 f7       	brne	.-38     	; 0xae4 <__udivmodsi4_loop>
+ b0a:	60 95       	com	r22
+ b0c:	70 95       	com	r23
+ b0e:	80 95       	com	r24
+ b10:	90 95       	com	r25
+ b12:	9b 01       	movw	r18, r22
+ b14:	ac 01       	movw	r20, r24
+ b16:	bd 01       	movw	r22, r26
+ b18:	cf 01       	movw	r24, r30
+ b1a:	08 95       	ret
+
+00000b1c <_exit>:
+ b1c:	f8 94       	cli
+
+00000b1e <__stop_program>:
+ b1e:	ff cf       	rjmp	.-2      	; 0xb1e <__stop_program>
