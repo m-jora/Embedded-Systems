@@ -37,6 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../Ex6Funcs.c \
 ../GPIO_Outputs.c \
 ../LEDS.c \
 ../main.c \
@@ -54,6 +55,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+Ex6Funcs.o \
 GPIO_Outputs.o \
 LEDS.o \
 main.o \
@@ -64,6 +66,7 @@ UART.o \
 UART_Print.o
 
 OBJS_AS_ARGS +=  \
+Ex6Funcs.o \
 GPIO_Outputs.o \
 LEDS.o \
 main.o \
@@ -74,6 +77,7 @@ UART.o \
 UART_Print.o
 
 C_DEPS +=  \
+Ex6Funcs.d \
 GPIO_Outputs.d \
 LEDS.d \
 main.d \
@@ -84,6 +88,7 @@ UART.d \
 UART_Print.d
 
 C_DEPS_AS_ARGS +=  \
+Ex6Funcs.d \
 GPIO_Outputs.d \
 LEDS.d \
 main.d \
@@ -107,6 +112,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./Ex6Funcs.o: .././Ex6Funcs.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega324pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega324pb" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./GPIO_Outputs.o: .././GPIO_Outputs.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0

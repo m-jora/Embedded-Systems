@@ -11,9 +11,26 @@ Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
+ .text          0x00000000        0x0 Ex6Funcs.o
+ .data          0x00000000        0x0 Ex6Funcs.o
+ .bss           0x00000000        0x0 Ex6Funcs.o
+ .text.Display_Binary_On_LEDs
+                0x00000000       0x36 Ex6Funcs.o
+ .debug_info    0x00000000      0x142 Ex6Funcs.o
+ .debug_abbrev  0x00000000       0xbd Ex6Funcs.o
+ .debug_loc     0x00000000       0x5e Ex6Funcs.o
+ .debug_aranges
+                0x00000000       0x20 Ex6Funcs.o
+ .debug_ranges  0x00000000       0x10 Ex6Funcs.o
+ .debug_line    0x00000000       0xe9 Ex6Funcs.o
+ .debug_str     0x00000000      0x1cb Ex6Funcs.o
+ .comment       0x00000000       0x31 Ex6Funcs.o
+ .debug_frame   0x00000000       0x2c Ex6Funcs.o
  .text          0x00000000        0x0 GPIO_Outputs.o
  .data          0x00000000        0x0 GPIO_Outputs.o
  .bss           0x00000000        0x0 GPIO_Outputs.o
+ .text.Read_Inputs
+                0x00000000        0x6 GPIO_Outputs.o
  .text          0x00000000        0x0 LEDS.o
  .data          0x00000000        0x0 LEDS.o
  .bss           0x00000000        0x0 LEDS.o
@@ -108,6 +125,7 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
+LOAD Ex6Funcs.o
 LOAD GPIO_Outputs.o
 LOAD LEDS.o
 LOAD main.o
@@ -225,7 +243,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xb20
+.text           0x00000000      0xc00
  *(.vectors)
  .vectors       0x00000000       0xcc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
                 0x00000000                __vector_default
@@ -347,75 +365,84 @@ END GROUP
  .text.GPIO_Output_Init
                 0x00000396        0xa GPIO_Outputs.o
                 0x00000396                GPIO_Output_Init
+ .text.Input_Init
+                0x000003a0        0xc GPIO_Outputs.o
+                0x000003a0                Input_Init
+ .text.Pull_Up_Enable
+                0x000003ac        0xa GPIO_Outputs.o
+                0x000003ac                Pull_Up_Enable
  .text.GPIO_Output_Set
-                0x000003a0        0xa GPIO_Outputs.o
-                0x000003a0                GPIO_Output_Set
+                0x000003b6        0xa GPIO_Outputs.o
+                0x000003b6                GPIO_Output_Set
  .text.GPIO_Output_Clear
-                0x000003aa        0xc GPIO_Outputs.o
-                0x000003aa                GPIO_Output_Clear
+                0x000003c0        0xc GPIO_Outputs.o
+                0x000003c0                GPIO_Output_Clear
+ .text.Read_Pin
+                0x000003cc       0x10 GPIO_Outputs.o
+                0x000003cc                Read_Pin
  .text.LEDS_Init
-                0x000003b6        0x6 LEDS.o
-                0x000003b6                LEDS_Init
+                0x000003dc        0x6 LEDS.o
+                0x000003dc                LEDS_Init
  .text.LEDS_Off
-                0x000003bc        0x6 LEDS.o
-                0x000003bc                LEDS_Off
- .text.LEDS_On  0x000003c2        0x6 LEDS.o
-                0x000003c2                LEDS_On
- .text.main     0x000003c8       0xa4 main.o
-                0x000003c8                main
+                0x000003e2        0x6 LEDS.o
+                0x000003e2                LEDS_Off
+ .text.LEDS_On  0x000003e8        0x6 LEDS.o
+                0x000003e8                LEDS_On
+ .text.main     0x000003ee      0x15e main.o
+                0x000003ee                main
  .text.OLED_Set_Line_0
-                0x0000046c       0x6a OLED.o
-                0x0000046c                OLED_Set_Line_0
+                0x0000054c       0x6a OLED.o
+                0x0000054c                OLED_Set_Line_0
  .text.OLED_Set_Line_1
-                0x000004d6       0x6a OLED.o
-                0x000004d6                OLED_Set_Line_1
+                0x000005b6       0x6a OLED.o
+                0x000005b6                OLED_Set_Line_1
  .text.OLED_Set_Line_2
-                0x00000540       0x6a OLED.o
-                0x00000540                OLED_Set_Line_2
+                0x00000620       0x6a OLED.o
+                0x00000620                OLED_Set_Line_2
  .text.OLED_Set_Line_3
-                0x000005aa       0x6a OLED.o
-                0x000005aa                OLED_Set_Line_3
+                0x0000068a       0x6a OLED.o
+                0x0000068a                OLED_Set_Line_3
  .text.OLED_Send_Char
-                0x00000614       0x82 OLED.o
-                0x00000614                OLED_Send_Char
+                0x000006f4       0x82 OLED.o
+                0x000006f4                OLED_Send_Char
  .text.OLED_Clear_Display
-                0x00000696       0xe6 OLED.o
-                0x00000696                OLED_Clear_Display
+                0x00000776       0xe6 OLED.o
+                0x00000776                OLED_Clear_Display
  .text.OLED_Init
-                0x0000077c       0xdc OLED.o
-                0x0000077c                OLED_Init
+                0x0000085c       0xdc OLED.o
+                0x0000085c                OLED_Init
  .text.OLED_Transmit_String
-                0x00000858       0x62 OLED.o
-                0x00000858                OLED_Transmit_String
+                0x00000938       0x62 OLED.o
+                0x00000938                OLED_Transmit_String
  .text.SPI_Master_Init
-                0x000008ba       0xe2 SPI.o
-                0x000008ba                SPI_Master_Init
+                0x0000099a       0xe2 SPI.o
+                0x0000099a                SPI_Master_Init
  .text.SPI_Transmit
-                0x0000099c       0x26 SPI.o
-                0x0000099c                SPI_Transmit
+                0x00000a7c       0x26 SPI.o
+                0x00000a7c                SPI_Transmit
  .text.UART_Init
-                0x000009c2       0x54 UART.o
-                0x000009c2                UART_Init
+                0x00000aa2       0x54 UART.o
+                0x00000aa2                UART_Init
  .text.UART_Transmit
-                0x00000a16        0xe UART.o
-                0x00000a16                UART_Transmit
+                0x00000af6        0xe UART.o
+                0x00000af6                UART_Transmit
  .text.Export_print_buffer
-                0x00000a24        0x6 UART_Print.o
-                0x00000a24                Export_print_buffer
+                0x00000b04        0x6 UART_Print.o
+                0x00000b04                Export_print_buffer
  .text.Copy_String_to_Buffer
-                0x00000a2a       0x4c UART_Print.o
-                0x00000a2a                Copy_String_to_Buffer
+                0x00000b0a       0x4c UART_Print.o
+                0x00000b0a                Copy_String_to_Buffer
  .text.UART_Transmit_String
-                0x00000a76       0x62 UART_Print.o
-                0x00000a76                UART_Transmit_String
+                0x00000b56       0x62 UART_Print.o
+                0x00000b56                UART_Transmit_String
  .text.libgcc.div
-                0x00000ad8       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00000ad8                __udivmodsi4
-                0x00000b1c                . = ALIGN (0x2)
+                0x00000bb8       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000bb8                __udivmodsi4
+                0x00000bfc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000b1c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000b1c                _exit
-                0x00000b1c                exit
+ .fini9         0x00000bfc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000bfc                _exit
+                0x00000bfc                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -434,11 +461,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000b1c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000bfc        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000b20                _etext = .
+                0x00000c00                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000b20
+.data           0x00800100        0x0 load address 0x00000c00
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -458,8 +485,8 @@ END GROUP
                 0x00800100       0x50 UART_Print.o
  *(COMMON)
                 0x00800150                PROVIDE (__bss_end, .)
-                0x00000b20                __data_load_start = LOADADDR (.data)
-                0x00000b20                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000c00                __data_load_start = LOADADDR (.data)
+                0x00000c00                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800150        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -537,103 +564,103 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x198
+.debug_aranges  0x00000000      0x1b8
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x30 GPIO_Outputs.o
+                0x00000000       0x50 GPIO_Outputs.o
  .debug_aranges
-                0x00000030       0x30 LEDS.o
+                0x00000050       0x30 LEDS.o
  .debug_aranges
-                0x00000060       0x20 main.o
+                0x00000080       0x20 main.o
  .debug_aranges
-                0x00000080       0x68 OLED.o
+                0x000000a0       0x68 OLED.o
  .debug_aranges
-                0x000000e8       0x18 OLED_Char_Map.o
+                0x00000108       0x18 OLED_Char_Map.o
  .debug_aranges
-                0x00000100       0x38 SPI.o
+                0x00000120       0x38 SPI.o
  .debug_aranges
-                0x00000138       0x30 UART.o
+                0x00000158       0x30 UART.o
  .debug_aranges
-                0x00000168       0x30 UART_Print.o
+                0x00000188       0x30 UART_Print.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2a33
+.debug_info     0x00000000     0x2da5
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x9bb C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
- .debug_info    0x000009bb      0x16f GPIO_Outputs.o
- .debug_info    0x00000b2a      0x1e8 LEDS.o
- .debug_info    0x00000d12      0x4b0 main.o
- .debug_info    0x000011c2     0x1004 OLED.o
- .debug_info    0x000021c6       0x9a OLED_Char_Map.o
- .debug_info    0x00002260      0x339 SPI.o
- .debug_info    0x00002599      0x1d1 UART.o
- .debug_info    0x0000276a      0x2c9 UART_Print.o
+ .debug_info    0x000009bb      0x261 GPIO_Outputs.o
+ .debug_info    0x00000c1c      0x1e8 LEDS.o
+ .debug_info    0x00000e04      0x730 main.o
+ .debug_info    0x00001534     0x1004 OLED.o
+ .debug_info    0x00002538       0x9a OLED_Char_Map.o
+ .debug_info    0x000025d2      0x339 SPI.o
+ .debug_info    0x0000290b      0x1d1 UART.o
+ .debug_info    0x00002adc      0x2c9 UART_Print.o
 
-.debug_abbrev   0x00000000     0x11a7
+.debug_abbrev   0x00000000     0x11dc
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x934 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
- .debug_abbrev  0x00000934       0xb7 GPIO_Outputs.o
- .debug_abbrev  0x000009eb       0xb9 LEDS.o
- .debug_abbrev  0x00000aa4      0x1a1 main.o
- .debug_abbrev  0x00000c45      0x18d OLED.o
- .debug_abbrev  0x00000dd2       0x5d OLED_Char_Map.o
- .debug_abbrev  0x00000e2f      0x120 SPI.o
- .debug_abbrev  0x00000f4f       0xf3 UART.o
- .debug_abbrev  0x00001042      0x165 UART_Print.o
+ .debug_abbrev  0x00000934       0xe4 GPIO_Outputs.o
+ .debug_abbrev  0x00000a18       0xb9 LEDS.o
+ .debug_abbrev  0x00000ad1      0x1a9 main.o
+ .debug_abbrev  0x00000c7a      0x18d OLED.o
+ .debug_abbrev  0x00000e07       0x5d OLED_Char_Map.o
+ .debug_abbrev  0x00000e64      0x120 SPI.o
+ .debug_abbrev  0x00000f84       0xf3 UART.o
+ .debug_abbrev  0x00001077      0x165 UART_Print.o
 
-.debug_line     0x00000000     0x1124
+.debug_line     0x00000000     0x11f9
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1ca C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
- .debug_line    0x000001ca       0xe7 GPIO_Outputs.o
- .debug_line    0x000002b1       0xf1 LEDS.o
- .debug_line    0x000003a2      0x1b7 main.o
- .debug_line    0x00000559      0x561 OLED.o
- .debug_line    0x00000aba       0x94 OLED_Char_Map.o
- .debug_line    0x00000b4e      0x30d SPI.o
- .debug_line    0x00000e5b      0x138 UART.o
- .debug_line    0x00000f93      0x191 UART_Print.o
+ .debug_line    0x000001ca      0x157 GPIO_Outputs.o
+ .debug_line    0x00000321       0xf1 LEDS.o
+ .debug_line    0x00000412      0x21c main.o
+ .debug_line    0x0000062e      0x561 OLED.o
+ .debug_line    0x00000b8f       0x94 OLED_Char_Map.o
+ .debug_line    0x00000c23      0x30d SPI.o
+ .debug_line    0x00000f30      0x138 UART.o
+ .debug_line    0x00001068      0x191 UART_Print.o
 
-.debug_frame    0x00000000      0x340
+.debug_frame    0x00000000      0x380
  *(.debug_frame)
- .debug_frame   0x00000000       0x44 GPIO_Outputs.o
- .debug_frame   0x00000044       0x44 LEDS.o
- .debug_frame   0x00000088       0x24 main.o
- .debug_frame   0x000000ac      0x170 OLED.o
- .debug_frame   0x0000021c       0x64 SPI.o
- .debug_frame   0x00000280       0x50 UART.o
- .debug_frame   0x000002d0       0x70 UART_Print.o
+ .debug_frame   0x00000000       0x84 GPIO_Outputs.o
+ .debug_frame   0x00000084       0x44 LEDS.o
+ .debug_frame   0x000000c8       0x24 main.o
+ .debug_frame   0x000000ec      0x170 OLED.o
+ .debug_frame   0x0000025c       0x64 SPI.o
+ .debug_frame   0x000002c0       0x50 UART.o
+ .debug_frame   0x00000310       0x70 UART_Print.o
 
-.debug_str      0x00000000      0x892
+.debug_str      0x00000000      0x8c4
  *(.debug_str)
  .debug_str     0x00000000      0x35a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega324pb/avr5/crtatmega324pb.o
- .debug_str     0x0000035a      0x1b8 GPIO_Outputs.o
-                                0x1ec (size before relaxing)
- .debug_str     0x00000512       0x27 LEDS.o
-                                0x1ff (size before relaxing)
- .debug_str     0x00000539      0x147 main.o
-                                0x2f9 (size before relaxing)
- .debug_str     0x00000680      0x10d OLED.o
-                                0x332 (size before relaxing)
- .debug_str     0x0000078d       0x15 OLED_Char_Map.o
-                                0x193 (size before relaxing)
- .debug_str     0x000007a2       0x6f SPI.o
-                                0x25f (size before relaxing)
- .debug_str     0x00000811       0x53 UART.o
-                                0x205 (size before relaxing)
- .debug_str     0x00000864       0x2e UART_Print.o
-                                0x27e (size before relaxing)
+ .debug_str     0x0000035a      0x1f0 GPIO_Outputs.o
+                                0x224 (size before relaxing)
+ .debug_str     0x0000054a       0x27 LEDS.o
+                                0x202 (size before relaxing)
+ .debug_str     0x00000571      0x147 main.o
+                                0x325 (size before relaxing)
+ .debug_str     0x000006b8      0x107 OLED.o
+                                0x335 (size before relaxing)
+ .debug_str     0x000007bf       0x15 OLED_Char_Map.o
+                                0x196 (size before relaxing)
+ .debug_str     0x000007d4       0x6f SPI.o
+                                0x262 (size before relaxing)
+ .debug_str     0x00000843       0x53 UART.o
+                                0x208 (size before relaxing)
+ .debug_str     0x00000896       0x2e UART_Print.o
+                                0x281 (size before relaxing)
 
-.debug_loc      0x00000000     0x104b
+.debug_loc      0x00000000     0x119b
  *(.debug_loc)
- .debug_loc     0x00000000       0x71 GPIO_Outputs.o
- .debug_loc     0x00000071       0xd5 LEDS.o
- .debug_loc     0x00000146       0x70 main.o
- .debug_loc     0x000001b6      0x745 OLED.o
- .debug_loc     0x000008fb      0x3d3 SPI.o
- .debug_loc     0x00000cce       0xdb UART.o
- .debug_loc     0x00000da9      0x2a2 UART_Print.o
+ .debug_loc     0x00000000      0x150 GPIO_Outputs.o
+ .debug_loc     0x00000150       0xd5 LEDS.o
+ .debug_loc     0x00000225       0xe1 main.o
+ .debug_loc     0x00000306      0x745 OLED.o
+ .debug_loc     0x00000a4b      0x3d3 SPI.o
+ .debug_loc     0x00000e1e       0xdb UART.o
+ .debug_loc     0x00000ef9      0x2a2 UART_Print.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -653,15 +680,15 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x110
+.debug_ranges   0x00000000      0x130
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x20 GPIO_Outputs.o
- .debug_ranges  0x00000020       0x20 LEDS.o
- .debug_ranges  0x00000040       0x10 main.o
- .debug_ranges  0x00000050       0x58 OLED.o
- .debug_ranges  0x000000a8       0x28 SPI.o
- .debug_ranges  0x000000d0       0x20 UART.o
- .debug_ranges  0x000000f0       0x20 UART_Print.o
+ .debug_ranges  0x00000000       0x40 GPIO_Outputs.o
+ .debug_ranges  0x00000040       0x20 LEDS.o
+ .debug_ranges  0x00000060       0x10 main.o
+ .debug_ranges  0x00000070       0x58 OLED.o
+ .debug_ranges  0x000000c8       0x28 SPI.o
+ .debug_ranges  0x000000f0       0x20 UART.o
+ .debug_ranges  0x00000110       0x20 UART_Print.o
 
 .debug_macro
  *(.debug_macro)

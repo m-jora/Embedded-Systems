@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+Ex6Funcs.c
+
 GPIO_Outputs.c
 
 LEDS.c

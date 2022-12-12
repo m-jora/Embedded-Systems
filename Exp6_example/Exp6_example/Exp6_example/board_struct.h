@@ -140,6 +140,11 @@
 #define PORT_D1  1
 #define PORT_D0  0
 
+// Defining switch
+#define SW0 (1<<6) //PC
+#define SW1 (1<<2) //PB
+#define SW2 (1<<4) //PA
+#define SW3 (1<<5) //PA
 
 /***** Microcontroller SFR Addresses *******/
 /***** UARTS ******/
