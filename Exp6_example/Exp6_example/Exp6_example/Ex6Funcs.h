@@ -3,18 +3,28 @@
 
 #include "board_struct.h"
 
+typedef enum {not_pressed, debounce_p, pressed, held,
+debounce_r} sw_state_t;
+
+typedef struct
+{
+	volatile uint8_t * port_addr;
+	uint8_t pin_mask;
+	sw_state_t sw_state;
+	uint8_t debounce_time;
+} sw_status_t;
+
+uint8_t INTERVAL;
+uint32_t time_g;
+sw_status_t sw1_status_g, sw2_status_g, sw3_status_g;
+
+
 void Display_Binary_On_LEDs(uint8_t number);
 
-// void Read_Switch(SW_values_t * SW_input_p);
+uint8_t sEOS_Init(uint8_t interval_ms);
+	
+ISR(TIMER2_COMPA_vect);
 
-typedef enum {not_pressed, debounce_p, pressed, held,
-debounce_r} switch_state_t;
-
-typedef struct{
-	uint8_t SW_mask;
-	uint8_t volatile *SW_port;
-	uint8_t debounce_time;
-	switch_state_t SW_state; 
-} SW_values_t;
+void Read_Switch(sw_status_t * SW_input_p);
 
 #endif
